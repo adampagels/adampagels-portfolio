@@ -12,6 +12,14 @@ const Projects = ({ data }) => {
         {projects.map(({ node: project }) => (
           <div key={project.id}>
             <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+            {project.titleImage.file.url.includes("images") ? (
+              <img alt={project.title} src={project.titleImage.file.url} />
+            ) : (
+              <video width="100%" height="100%" controls>
+                <source src={project.titleImage.file.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         ))}
         <span className="mgBtm__24" />
