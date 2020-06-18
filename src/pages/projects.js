@@ -2,29 +2,122 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styled from "styled-components"
+
+const StyledDiv = styled.div`
+  display: flex;
+  width: 900px;
+  margin-bottom: 50px;
+`
+
+const D = styled.div`
+  display: block;
+  margin-right: 30px;
+  &:nth-child(even) {
+    margin-left: 30px;
+  }
+  align-self: center;
+`
+
+const StyledImg = styled.img`
+  height: 300px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+    0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+`
+
+const StyledContainer = styled.div`
+  margin-top: 100px;
+`
+
+const StyledProjects = styled.div`
+  &:nth-child(even) {
+    display: flex;
+    justify-content: flex-end;
+  }
+  align-self: center;
+`
+
+const IconContainer = styled.div`
+  margin-top: 50px;
+`
+
 const Projects = ({ data }) => {
   const projects = data.allContentfulProjects.edges
   return (
     <Layout>
       <SEO title="Projects" />
-      <h1>{"Here's a list of all projects!"}</h1>
-      <div className="projects">
+      <StyledContainer>
         {projects.map(({ node: project }) => (
-          <div key={project.id}>
-            <Link to={`/projects/${project.slug}`}>{project.title}</Link>
-            {project.titleImage.file.url.includes("images") ? (
-              <img alt={project.title} src={project.titleImage.file.url} />
-            ) : (
-              <video width="100%" height="100%" controls>
-                <source src={project.titleImage.file.url} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-          </div>
+          <StyledProjects>
+            <>
+              {project && project.title === projects[1].node.title ? (
+                <StyledDiv>
+                  <D>
+                    <Link to={`/projects/${project.slug}`}>
+                      <h2>{project.title}</h2>
+                    </Link>
+                    <p>{project.shortDescription}</p>
+                    <Link to={`/projects/${project.slug}`}>View Project</Link>
+                    <IconContainer>
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Demo
+                      </a>
+                      <a
+                        href={project.codeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Code
+                      </a>
+                    </IconContainer>
+                  </D>
+                  <StyledImg
+                    alt={project.title}
+                    src={project.titleImage.file.url}
+                  />
+                </StyledDiv>
+              ) : (
+                <StyledDiv>
+                  <StyledImg
+                    alt={project.title}
+                    src={project.titleImage.file.url}
+                  />
+                  <D>
+                    <Link to={`/projects/${project.slug}`}>
+                      <h2>{project.title}</h2>
+                    </Link>
+                    <p>{project.shortDescription}</p>
+                    <Link to={`/projects/${project.slug}`}>View Project</Link>
+                    <IconContainer>
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Demo
+                      </a>
+                      <a
+                        href={project.codeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Code
+                      </a>
+                    </IconContainer>
+                  </D>
+                </StyledDiv>
+              )}
+            </>
+          </StyledProjects>
         ))}
-        <span className="mgBtm__24" />
-        <Link to="/">Go back to the homepage</Link>
-      </div>
+      </StyledContainer>
     </Layout>
   )
 }
@@ -45,6 +138,9 @@ export const query = graphql`
               url
             }
           }
+          shortDescription
+          codeLink
+          demoLink
         }
       }
     }
