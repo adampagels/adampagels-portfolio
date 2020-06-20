@@ -2,59 +2,68 @@ import React from "react"
 import Link from "gatsby-link"
 import styled from "styled-components"
 
-const StyledContainer = styled.div`
-  position: absolute;
-`
-
 const StyledNav = styled.nav`
-  margin: 1rem;
-`
-
-const StyledUl = styled.ul`
   display: flex;
-  font-size: 13px;
+  font-size: 18px;
   list-style: none;
-  margin: 0px;
-  padding: 0px;
-  position: fixed;
   width: 100%;
-  font-size: 1.3rem;
-`
-
-const StyledLi = styled.li`
-  display: block;
-  padding: 10px;
-  margin-right: 20px;
-  & :first-child {
-    margin-right: auto;
-  }
 `
 
 const StyledLink = styled(Link)`
-  color: black;
+  padding-left: 0px;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+`
+
+const StyledOuterUl = styled.ul`
+  display: flex;
+  padding: 0px;
+`
+
+const StyledInnerUl = styled.ul`
+  margin: auto;
+  display: flex;
+`
+
+const StyledInnerLi = styled.li`
+  display: flex;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+`
+
+const StyledOuterLi = styled.li`
+  display: flex;
   text-decoration: none;
 `
 
 const Navigation = () => {
   return (
-    <StyledContainer>
-      <StyledNav>
-        <StyledUl>
-          <StyledLi>
-            <StyledLink to="/">Adam Pagels</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to="/projects">Projects</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to="/about">About</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to="/contact">Contact</StyledLink>
-          </StyledLi>
-        </StyledUl>
-      </StyledNav>
-    </StyledContainer>
+    <StyledNav>
+      <StyledOuterUl>
+        <StyledOuterLi>
+          <StyledLink to="/">Adam Pagels</StyledLink>
+        </StyledOuterLi>
+      </StyledOuterUl>
+      <StyledInnerUl>
+        <StyledInnerLi>
+          <StyledLink to="/projects">Projects</StyledLink>
+        </StyledInnerLi>
+        <StyledInnerLi>
+          <StyledLink to="/about">About</StyledLink>
+        </StyledInnerLi>
+        <StyledInnerLi>
+          <StyledLink to="/blog">Blog</StyledLink>
+        </StyledInnerLi>
+      </StyledInnerUl>
+      <StyledOuterUl>
+        <StyledOuterLi>
+          <StyledLink to="/contact">Get in touch</StyledLink>
+        </StyledOuterLi>
+      </StyledOuterUl>
+    </StyledNav>
   )
 }
 
