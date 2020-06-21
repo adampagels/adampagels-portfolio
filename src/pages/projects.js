@@ -56,9 +56,11 @@ const Projects = ({ data }) => {
               {project && project.title === projects[1].node.title ? (
                 <StyledDiv>
                   <D>
-                    <Link to={`/projects/${project.slug}`}>
-                      <h2>{project.title}</h2>
-                    </Link>
+                    <h2>
+                      <Link to={`/projects/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </h2>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
                     <IconContainer>
@@ -90,9 +92,11 @@ const Projects = ({ data }) => {
                     src={project.titleImage.file.url}
                   />
                   <D>
-                    <Link to={`/projects/${project.slug}`}>
-                      <h2>{project.title}</h2>
-                    </Link>
+                    <h2>
+                      <Link to={`/projects/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </h2>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
                     <IconContainer>
@@ -130,9 +134,6 @@ export const query = graphql`
           id
           title
           slug
-          body {
-            body
-          }
           titleImage {
             file {
               url
