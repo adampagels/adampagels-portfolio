@@ -128,7 +128,7 @@ const Projects = ({ data }) => {
 export default Projects
 export const query = graphql`
   query ProjectsPageQuery {
-    allContentfulProjects(limit: 1000) {
+    allContentfulProjects(sort: { fields: order }) {
       edges {
         node {
           id
@@ -139,6 +139,7 @@ export const query = graphql`
               url
             }
           }
+          order
           shortDescription
           codeLink
           demoLink
