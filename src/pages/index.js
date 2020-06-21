@@ -1,22 +1,46 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import BackgroundImage from "../components/background"
 
-const IndexPage = () => (
+const Index = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <h1
+      style={{
+        color: "black",
+        fontSize: 80,
+        textAlign: "center",
+        paddingRight: 0,
+      }}
+    >
+      Adam Pagels
+    </h1>
+    <div style={{ marginTop: "-40px" }}>
+      <h2
+        style={{
+          color: "black",
+          fontSize: 25,
+          marginLeft: "50%",
+          paddingRight: 0,
+        }}
+      >
+        Full-Stack Developer
+      </h2>
+      <h2
+        style={{
+          color: "black",
+          fontSize: 25,
+          marginLeft: "50%",
+          paddingRight: 0,
+        }}
+      >
+        Based in Toronto
+      </h2>
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <BackgroundImage />
   </Layout>
 )
 
-export default IndexPage
+export default Index
