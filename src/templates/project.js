@@ -3,13 +3,24 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 const Project = ({ data }) => {
-  const { title, longDescription, stackDescription } = data.contentfulProjects
+  const { title, stackDescription } = data.contentfulProjects
+
+  console.log(data.contentfulProjects.bodyImages)
   return (
     <Layout>
       <SEO title={title} />
       <div className="blogpost">
-        <h1>{title}</h1>
-        <p>{longDescription.longDescription}</p>
+        <div style={{ maxWidth: "600px" }}>
+          <h1>{title}</h1>
+          <p
+            className="body"
+            dangerouslySetInnerHTML={{
+              __html:
+                data.contentfulProjects.longDescription.childMarkdownRemark
+                  .html,
+            }}
+          />
+        </div>
         <p>{stackDescription.stackDescription}</p>
         <Link to="/projects">View more projects</Link>
         <Link to="/">Back to Home</Link>
@@ -24,7 +35,9 @@ export const pageQuery = graphql`
       title
       slug
       longDescription {
-        longDescription
+        childMarkdownRemark {
+          html
+        }
       }
       stackDescription {
         stackDescription
