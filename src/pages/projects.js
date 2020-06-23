@@ -3,14 +3,16 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCode, faGamepad } from "@fortawesome/free-solid-svg-icons"
 
-const StyledDiv = styled.div`
+const StyledProjectsContentContainer = styled.div`
   display: flex;
   width: 900px;
   margin-bottom: 50px;
 `
 
-const D = styled.div`
+const StyledProjectsContent = styled.div`
   display: block;
   margin-right: 30px;
   &:nth-child(even) {
@@ -40,8 +42,38 @@ const StyledProjects = styled.div`
   align-self: center;
 `
 
-const IconContainer = styled.div`
+const StyledAContainer = styled.div`
   margin-top: 50px;
+`
+
+const A = styled.a`
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  border-radius: 5px;
+  box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  text-decoration: none;
+  margin: 10px 30px 10px 0px;
+}
+
+&:hover {
+  box-shadow: 0px 37px 20px -15px rgba(0,0,0,0.2);
+  transform: translate(0px, -10px);
+}
+`
+
+const StyledFADemoIcon = styled(FontAwesomeIcon)`
+  font-size: 16px;
+  margin-left: 10px;
+`
+
+const StyledFACodeIcon = styled(FontAwesomeIcon)`
+  font-size: 14px;
+  margin: 0px 0px 1px 10px;
 `
 
 const Projects = ({ data }) => {
@@ -54,8 +86,8 @@ const Projects = ({ data }) => {
           <StyledProjects>
             <>
               {project && project.title === projects[1].node.title ? (
-                <StyledDiv>
-                  <D>
+                <StyledProjectsContentContainer>
+                  <StyledProjectsContent>
                     <h2>
                       <Link to={`/projects/${project.slug}`}>
                         {project.title}
@@ -63,35 +95,37 @@ const Projects = ({ data }) => {
                     </h2>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
-                    <IconContainer>
-                      <a
+                    <StyledAContainer>
+                      <A
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         Demo
-                      </a>
-                      <a
+                        <StyledFADemoIcon icon={faGamepad} />
+                      </A>
+                      <A
                         href={project.codeLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         Code
-                      </a>
-                    </IconContainer>
-                  </D>
+                        <StyledFACodeIcon icon={faCode} />
+                      </A>
+                    </StyledAContainer>
+                  </StyledProjectsContent>
                   <StyledImg
                     alt={project.title}
                     src={project.titleImage.file.url}
                   />
-                </StyledDiv>
+                </StyledProjectsContentContainer>
               ) : (
-                <StyledDiv>
+                <StyledProjectsContentContainer>
                   <StyledImg
                     alt={project.title}
                     src={project.titleImage.file.url}
                   />
-                  <D>
+                  <StyledProjectsContent>
                     <h2>
                       <Link to={`/projects/${project.slug}`}>
                         {project.title}
@@ -99,24 +133,26 @@ const Projects = ({ data }) => {
                     </h2>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
-                    <IconContainer>
-                      <a
+                    <StyledAContainer>
+                      <A
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         Demo
-                      </a>
-                      <a
+                        <StyledFADemoIcon icon={faGamepad} />
+                      </A>
+                      <A
                         href={project.codeLink}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         Code
-                      </a>
-                    </IconContainer>
-                  </D>
-                </StyledDiv>
+                        <StyledFACodeIcon icon={faCode} />
+                      </A>
+                    </StyledAContainer>
+                  </StyledProjectsContent>
+                </StyledProjectsContentContainer>
               )}
             </>
           </StyledProjects>
