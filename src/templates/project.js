@@ -36,44 +36,77 @@ const StyledTechStackRowContainer = styled.div`
   display: flex;
   margin: 120px auto;
   width: 100%;
+  flex-direction: column;
+
+  @media screen and (min-width: 830px) {
+    flex-direction: row;
+  }
 `
 
 const StyledTechStack = styled.div`
-  width: 45%;
-  margin-left: 70px;
+  width: 80%;
+  margin-left: 0px;
+  margin-top: 100px;
+
+  @media screen and (min-width: 830px) {
+    width: 45%;
+    margin-left: 70px;
+    margin-top: 0px;
+  }
 `
 
 const StyledImage2 = styled.img`
-  width: 45%;
+  width: 100%;
   height: 50%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
     rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 8px 8px,
     rgba(0, 0, 0, 0.11) 0px 16px 16px, rgba(0, 0, 0, 0.11) 0px 32px 32px;
   border-radius: 10px;
+
+  @media screen and (min-width: 830px) {
+    width: 45%;
+  }
 `
 
 const ImageRow = styled.div`
   display: flex;
   margin: 4% auto 120px auto;
   justify-content: space-between;
+  flex-direction: column;
+
+  @media screen and (min-width: 830px) {
+    flex-direction: row;
+    margin: 4% auto 120px auto;
+    justify-content: space-between;
+  }
 `
 
 const StyledImage3 = styled.img`
-  width: 48%;
+  width: 100%;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
     rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 8px 8px,
     rgba(0, 0, 0, 0.11) 0px 16px 16px, rgba(0, 0, 0, 0.11) 0px 32px 32px;
   border-radius: 10px;
+
+  @media screen and (min-width: 830px) {
+    width: 48%;
+  }
 `
 
 const StyledImage4 = styled.img`
-  width: 48%;
+  width: 100%;
   height: 100%;
+  margin-top: 34px;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
     rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 8px 8px,
     rgba(0, 0, 0, 0.11) 0px 16px 16px, rgba(0, 0, 0, 0.11) 0px 32px 32px;
   border-radius: 10px;
+
+  @media screen and (min-width: 830px) {
+    width: 48%;
+    margin-top: 0px;
+  }
 `
 
 const StyledImage5 = styled.img`
