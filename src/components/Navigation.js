@@ -58,8 +58,8 @@ const StyledOuterLi = styled.li`
 
 const Toggle = styled.div`
   display: none;
-  height: 0%;
-  margin-top: -100px
+  position: absolute;
+  right: 14px;
   cursor: pointer;
   padding: 0 10vw;
 
