@@ -56,18 +56,6 @@ const StyledOuterLi = styled.li`
   text-decoration: none;
 `
 
-const Toggle = styled.div`
-  display: none;
-  position: absolute;
-  right: 14px;
-  cursor: pointer;
-  padding: 0 10vw;
-
-  @media (max-width: 830px) {
-    display: flex;
-  }
-`
-
 const Navbox = styled.div`
   display: flex;
   height: 40%;
@@ -154,12 +142,9 @@ const Navigation = () => {
   return (
     <StyledNav>
       {navbarOpen ? <Navbox>{navbar}</Navbox> : <Navbox open>{navbar}</Navbox>}
-      <Toggle
-        navbarOpen={navbarOpen}
-        onClick={() => setNavbarOpen(!navbarOpen)}
-      >
+      <div navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
-      </Toggle>
+      </div>
     </StyledNav>
   )
 }
