@@ -20,12 +20,27 @@ const StyledH1 = styled.h1`
 `
 
 const StyledH2Container = styled.div`
-  margin-top: -40px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: 10px;
+  margin: -40px auto;
+
+  @media (min-width: 400px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 485px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 600px) {
+    width: 75%;
+  }
 `
 
 const StyledH2 = styled.h2`
-color: #111,
-fontSize: 25,
+  color: #111;
 `
 
 const Index = () => (
