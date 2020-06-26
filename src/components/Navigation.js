@@ -78,6 +78,7 @@ const Navbox = styled.div`
 `
 
 const Hamburger = styled.div`
+  display: none;
   background-color: #111;
   width: 30px;
   height: 3px;
@@ -109,6 +110,13 @@ const Hamburger = styled.div`
     transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
     top: 10px;
   }
+
+  :hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 830px) {
+    display: flex;
 `
 
 const Navigation = () => {
@@ -142,9 +150,11 @@ const Navigation = () => {
   return (
     <StyledNav>
       {navbarOpen ? <Navbox>{navbar}</Navbox> : <Navbox open>{navbar}</Navbox>}
-      <div navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
-        {navbarOpen ? <Hamburger open /> : <Hamburger />}
-      </div>
+      {navbarOpen ? (
+        <Hamburger open={"open"} onClick={() => setNavbarOpen(!navbarOpen)} />
+      ) : (
+        <Hamburger onClick={() => setNavbarOpen(!navbarOpen)} />
+      )}
     </StyledNav>
   )
 }
