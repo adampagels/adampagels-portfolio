@@ -26,6 +26,10 @@ const StyledH2Container = styled.div`
   font-size: 10px;
   margin: -40px auto;
 
+  @media (min-width: 350px) {
+    font-size: 11px;
+  }
+
   @media (min-width: 400px) {
     font-size: 12px;
   }
