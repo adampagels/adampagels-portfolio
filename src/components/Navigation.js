@@ -56,16 +56,7 @@ const StyledOuterLi = styled.li`
   text-decoration: none;
 `
 
-const Toggle = styled.div`
-  display: none;
-  height: 0%;
-  cursor: pointer;
-  padding: 0 10vw;
-
-  @media (max-width: 830px) {
-    display: flex;
-  }
-`
+const Toggle = styled.div``
 
 const Navbox = styled.div`
   display: flex;
