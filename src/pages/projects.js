@@ -6,28 +6,83 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCode, faGamepad } from "@fortawesome/free-solid-svg-icons"
 
-const StyledProjectsContentContainer = styled.div`
+const StyledProjectsContentContainerOdd = styled.div`
   display: flex;
-  width: 900px;
-  margin-bottom: 50px;
+  flex-direction: column;
+
+  @media screen and (min-width: 830px) {
+    width: 900px;
+    margin-bottom: 50px;
+    flex-direction: row;
+  }
+`
+
+const StyledProjectsContentContainerEven = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 100px 0px 100px 0px;
+
+  @media screen and (min-width: 830px) {
+    width: 900px;
+    margin: 0px 0px 50px 0px;
+    flex-direction: row;
+  }
+`
+
+const StyledProjectTitle = styled.h2`
+  font-size: 30px;
+  margin-top: 25px;
+
+  @media screen and (min-width: 400px) {
+    font-size: 40px;
+    margin-top: 25px;
+  }
+
+  @media screen and (min-width: 500px) {
+    font-size: 50px;
+    margin-top: 25px;
+  }
+
+  @media screen and (min-width: 830px) {
+    margin-top: 0px;
+  }
+`
+
+const StyledTitleLink = styled(Link)`
+  text-decoration: none;
+  color: #111;
+
+  &:visited {
+    color: #111;
+  }
 `
 
 const StyledProjectsContent = styled.div`
   display: block;
   margin-right: 30px;
+
   &:nth-child(even) {
-    margin-left: 30px;
+    margin-left: 0px;
+
+    @media screen and (min-width: 830px) {
+      margin-left: 30px;
+    }
   }
   align-self: center;
 `
 
 const StyledImg = styled.img`
-  height: 300px;
-  width: 400px;
+  height: 50%;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
     0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
     0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+
+  @media screen and (min-width: 830px) {
+    height: 300px;
+    width: 400px;
+  }
 `
 
 const StyledContainer = styled.div`
@@ -39,6 +94,7 @@ const StyledProjects = styled.div`
     display: flex;
     justify-content: flex-end;
   }
+
   align-self: center;
 `
 
@@ -86,13 +142,13 @@ const Projects = ({ data }) => {
           <StyledProjects>
             <>
               {project && project.title === projects[1].node.title ? (
-                <StyledProjectsContentContainer>
+                <StyledProjectsContentContainerEven>
                   <StyledProjectsContent>
-                    <h2>
-                      <Link to={`/projects/${project.slug}`}>
+                    <StyledProjectTitle>
+                      <StyledTitleLink to={`/projects/${project.slug}`}>
                         {project.title}
-                      </Link>
-                    </h2>
+                      </StyledTitleLink>
+                    </StyledProjectTitle>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
                     <StyledAContainer>
@@ -118,19 +174,19 @@ const Projects = ({ data }) => {
                     alt={project.title}
                     src={project.titleImage.file.url}
                   />
-                </StyledProjectsContentContainer>
+                </StyledProjectsContentContainerEven>
               ) : (
-                <StyledProjectsContentContainer>
+                <StyledProjectsContentContainerOdd>
                   <StyledImg
                     alt={project.title}
                     src={project.titleImage.file.url}
                   />
                   <StyledProjectsContent>
-                    <h2>
-                      <Link to={`/projects/${project.slug}`}>
+                    <StyledProjectTitle>
+                      <StyledTitleLink to={`/projects/${project.slug}`}>
                         {project.title}
-                      </Link>
-                    </h2>
+                      </StyledTitleLink>
+                    </StyledProjectTitle>
                     <p>{project.shortDescription}</p>
                     <Link to={`/projects/${project.slug}`}>View Project</Link>
                     <StyledAContainer>
@@ -152,7 +208,7 @@ const Projects = ({ data }) => {
                       </A>
                     </StyledAContainer>
                   </StyledProjectsContent>
-                </StyledProjectsContentContainer>
+                </StyledProjectsContentContainerOdd>
               )}
             </>
           </StyledProjects>
