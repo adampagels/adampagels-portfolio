@@ -2,60 +2,75 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import BackgroundImage from "../components/Background"
 import styled from "styled-components"
 
-const StyledH1 = styled.h1`
+const StyledTopH1 = styled.h1`
   color: #111;
-  font-size: 50px;
-  text-align: center;
+  font-size: 20vw;
+  font-family: sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
 
-  @media (min-width: 400px) {
-    font-size: 60px;
-  }
-
-  @media (min-width: 485px) {
-    font-size: 80px;
+  @media (min-width: 1400px) {
+    font-size: 281px;
   }
 `
 
-const StyledH2Container = styled.div`
+const StyledBottomH1 = styled.h1`
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: 1px rgb(252, 247, 248);
+  font-size: 20vw;
+  font-family: sans-serif;
+  margin: -5% 0px 0px -1.6%;
+  display: block;
+
+  @media (min-width: 1400px) {
+    font-size: 281px;
+  }
+`
+
+const StyledContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 50%;
+  z-index: 1;
+`
+
+const StyledTopLineContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  font-size: 10px;
-  margin: -40px auto;
-
-  @media (min-width: 350px) {
-    font-size: 11px;
-  }
-
-  @media (min-width: 400px) {
-    font-size: 12px;
-  }
-
-  @media (min-width: 485px) {
-    font-size: 16px;
-  }
-
-  @media (min-width: 600px) {
-    width: 75%;
-  }
 `
+
+const Span = styled.span``
 
 const StyledH2 = styled.h2`
-  color: #111;
+  font-family: sans-serif;
+  color: red;
+  font-size: calc(1px + 3.5vw);
+  font-style: italic;
+  margin: auto 0px auto 2%;
+
+  @media (min-width: 1400px) {
+    font-size: 51px;
+  }
 `
 
 const Index = () => (
   <Layout>
     <SEO title="Home" />
-    <StyledH1>Adam Pagels</StyledH1>
-    <StyledH2Container>
-      <StyledH2>Full-Stack Developer</StyledH2>
-      <StyledH2>Based in Toronto</StyledH2>
-    </StyledH2Container>
-    <BackgroundImage />
+    <StyledContainer>
+      <StyledTopLineContainer>
+        <StyledTopH1>ADAM</StyledTopH1>
+        <StyledH2>
+          Full-Stack <Span>Developer</Span>
+        </StyledH2>
+      </StyledTopLineContainer>
+      <StyledBottomH1>PAGELS</StyledBottomH1>
+    </StyledContainer>
   </Layout>
 )
 
