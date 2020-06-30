@@ -9,14 +9,17 @@ const StyledNav = styled.nav`
   width: 100%;
   height: 10vh;
   display: flex;
-  background-color: #fff;
+  background-color: transparent;
   position: relative;
   justify-content: space-between;
   text-transform: lowercase;
   margin: 0 auto;
   align-self: center;
+  margin-top: 20px;
+  z-index: 6;
 
   @media (max-width: 830px) {
+    margin-top: 0px;
     position: sticky;
     height: 8vh;
     top: 0;
@@ -32,6 +35,11 @@ const StyledLink = styled(Link)`
   display: block;
   text-decoration: none;
   padding: 10px;
+  color: #7158d1;
+
+  &:visited {
+    color: #7158d1;
+  }
 `
 
 const StyledOuterUl = styled.ul`
@@ -49,11 +57,13 @@ const StyledInnerLi = styled.li`
   text-decoration: none;
   padding: 10px;
   margin-right: 20px;
+  font-family: sans-serif;
 `
 
 const StyledOuterLi = styled.li`
   display: flex;
   text-decoration: none;
+  font-family: sans-serif;
 `
 
 const Navbox = styled.div`
