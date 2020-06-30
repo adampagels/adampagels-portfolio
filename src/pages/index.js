@@ -35,12 +35,10 @@ const StyledContainer = styled.div`
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 1;
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-repeat: no-repeat;
   background-image: url(${backgroundImage});
-
+  background-repeat: no-repeat;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: 1px rgb(252, 247, 248);
   background-size: 200%;
@@ -59,7 +57,7 @@ const Span = styled.span``
 const StyledH2 = styled.h2`
   font-family: sans-serif;
   color: #111;
-  font-size: calc(1px + 3.5vw);
+  font-size: 3.5vw;
   font-style: italic;
   margin: auto 0px auto 2%;
   -webkit-text-fill-color: #111;
