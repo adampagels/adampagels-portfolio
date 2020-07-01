@@ -213,7 +213,7 @@ const Projects = ({ data }) => {
                     src={project.titleImage.file.url}
                   />
                   <StyledProjectsContent>
-                    <S>
+                    <StyledTopLine>
                       <StyledProjectTitle>
                         <StyledTitleLink to={`/projects/${project.slug}`}>
                           {project.title}
@@ -235,7 +235,7 @@ const Projects = ({ data }) => {
                           <StyledFACodeIcon icon={faCode} />
                         </A>
                       </StyledAContainer>
-                    </S>
+                    </StyledTopLine>
                     <StyledDescription>
                       {project.shortDescription}
                     </StyledDescription>
