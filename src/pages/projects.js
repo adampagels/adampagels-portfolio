@@ -4,7 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCode, faGamepad } from "@fortawesome/free-solid-svg-icons"
+import {
+  faCode,
+  faGamepad,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons"
 
 const StyledProjectsContentContainerOdd = styled.div`
   display: flex;
@@ -30,30 +34,21 @@ const StyledProjectsContentContainerEven = styled.div`
 `
 
 const StyledProjectTitle = styled.h2`
-  font-size: 30px;
-  margin-top: 25px;
+  font-size: 40px;
+  margin: auto 0px;
 
   @media screen and (min-width: 400px) {
-    font-size: 40px;
-    margin-top: 25px;
-  }
-
-  @media screen and (min-width: 500px) {
     font-size: 50px;
-    margin-top: 25px;
-  }
-
-  @media screen and (min-width: 830px) {
-    margin-top: 0px;
   }
 `
 
 const StyledTitleLink = styled(Link)`
   text-decoration: none;
-  color: #111;
+  color: #333;
+}
 
   &:visited {
-    color: #111;
+    color: #333;
   }
 `
 
@@ -99,37 +94,68 @@ const StyledProjects = styled.div`
 `
 
 const StyledAContainer = styled.div`
-  margin-top: 50px;
+  margin: auto;
+  align-self: center;
+  display: flex;
+
+  @media screen and (min-width: 370px) {
+    margin: 0px 0px 0px 25px;
+  }
 `
 
 const A = styled.a`
-  display: inline-block;
-  background: #111;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 10px 40px;
+  color: #333;
+  padding: 8px;
   border-radius: 5px;
-  box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
+  -webkit-text-decoration: none;
   text-decoration: none;
-  margin: 10px 30px 10px 0px;
-}
+  margin: 10px 0px 10px 10px;
+  border-radius: 50px;
+  border: 2px solid #7158d1;
 
-&:hover {
-  box-shadow: 0px 37px 20px -15px rgba(0,0,0,0.2);
-  transform: translate(0px, -10px);
-}
+  &:hover {
+    box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
+    transform: translate(0px, -10px);
+  }
+
+  @media screen and (min-width: 400px) {
+    padding: 10px;
+  }
 `
 
 const StyledFADemoIcon = styled(FontAwesomeIcon)`
-  font-size: 16px;
-  margin-left: 10px;
+  font-size: 20px;
+
+  @media screen and (min-width: 400px) {
+    font-size: 25px;
+  }
 `
 
 const StyledFACodeIcon = styled(FontAwesomeIcon)`
-  font-size: 14px;
-  margin: 0px 0px 1px 10px;
+  font-size: 20px;
+
+  @media screen and (min-width: 400px) {
+    font-size: 25px;
+  }
+`
+
+const StyledFaChevronRight = styled(FontAwesomeIcon)`
+  font-size: 13px;
+  margin-left: 5px;
+`
+
+const StyledTopLine = styled.div`
+  display: flex;
+`
+
+const StyledDescription = styled.p`
+  font-size: 18px;
+  color: #222;
+  line-height: 170%;
 `
 
 const Projects = ({ data }) => {
@@ -144,31 +170,36 @@ const Projects = ({ data }) => {
               {project && project.title === projects[1].node.title ? (
                 <StyledProjectsContentContainerEven>
                   <StyledProjectsContent>
-                    <StyledProjectTitle>
-                      <StyledTitleLink to={`/projects/${project.slug}`}>
-                        {project.title}
-                      </StyledTitleLink>
-                    </StyledProjectTitle>
-                    <p>{project.shortDescription}</p>
-                    <Link to={`/projects/${project.slug}`}>View Project</Link>
-                    <StyledAContainer>
-                      <A
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Demo
-                        <StyledFADemoIcon icon={faGamepad} />
-                      </A>
-                      <A
-                        href={project.codeLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Code
-                        <StyledFACodeIcon icon={faCode} />
-                      </A>
-                    </StyledAContainer>
+                    <StyledTopLine>
+                      <StyledProjectTitle>
+                        <StyledTitleLink to={`/projects/${project.slug}`}>
+                          {project.title}
+                        </StyledTitleLink>
+                      </StyledProjectTitle>
+                      <StyledAContainer>
+                        <A
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <StyledFADemoIcon icon={faGamepad} />
+                        </A>
+                        <A
+                          href={project.codeLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <StyledFACodeIcon icon={faCode} />
+                        </A>
+                      </StyledAContainer>
+                    </StyledTopLine>
+                    <StyledDescription>
+                      {project.shortDescription}
+                    </StyledDescription>
+                    <Link to={`/projects/${project.slug}`}>
+                      View Project
+                      <StyledFaChevronRight icon={faChevronRight} />
+                    </Link>
                   </StyledProjectsContent>
                   <StyledImg
                     alt={project.title}
@@ -182,31 +213,36 @@ const Projects = ({ data }) => {
                     src={project.titleImage.file.url}
                   />
                   <StyledProjectsContent>
-                    <StyledProjectTitle>
-                      <StyledTitleLink to={`/projects/${project.slug}`}>
-                        {project.title}
-                      </StyledTitleLink>
-                    </StyledProjectTitle>
-                    <p>{project.shortDescription}</p>
-                    <Link to={`/projects/${project.slug}`}>View Project</Link>
-                    <StyledAContainer>
-                      <A
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Demo
-                        <StyledFADemoIcon icon={faGamepad} />
-                      </A>
-                      <A
-                        href={project.codeLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Code
-                        <StyledFACodeIcon icon={faCode} />
-                      </A>
-                    </StyledAContainer>
+                    <S>
+                      <StyledProjectTitle>
+                        <StyledTitleLink to={`/projects/${project.slug}`}>
+                          {project.title}
+                        </StyledTitleLink>
+                      </StyledProjectTitle>
+                      <StyledAContainer>
+                        <A
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <StyledFADemoIcon icon={faGamepad} />
+                        </A>
+                        <A
+                          href={project.codeLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <StyledFACodeIcon icon={faCode} />
+                        </A>
+                      </StyledAContainer>
+                    </S>
+                    <StyledDescription>
+                      {project.shortDescription}
+                    </StyledDescription>
+                    <Link to={`/projects/${project.slug}`}>
+                      View Project
+                      <StyledFaChevronRight icon={faChevronRight} />
+                    </Link>
                   </StyledProjectsContent>
                 </StyledProjectsContentContainerOdd>
               )}
