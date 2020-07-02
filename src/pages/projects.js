@@ -9,6 +9,7 @@ import {
   faGamepad,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
+import Img from "gatsby-image"
 
 const StyledProjectsContentContainerOdd = styled.div`
   display: flex;
@@ -66,18 +67,13 @@ const StyledProjectsContent = styled.div`
   align-self: center;
 `
 
-const StyledImg = styled.img`
-  height: 50%;
+const StyledImg = styled(Img)`
+  height: 100%;
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
     0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
     0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
-
-  @media screen and (min-width: 830px) {
-    height: 300px;
-    width: 400px;
-  }
 `
 
 const StyledContainer = styled.div`
@@ -201,16 +197,12 @@ const Projects = ({ data }) => {
                       <StyledFaChevronRight icon={faChevronRight} />
                     </Link>
                   </StyledProjectsContent>
-                  <StyledImg
-                    alt={project.title}
-                    src={project.titleImage.file.url}
-                  />
+                  <StyledImg fluid={project.titleImage.fluid} />
                 </StyledProjectsContentContainerEven>
               ) : (
                 <StyledProjectsContentContainerOdd>
                   <StyledImg
-                    alt={project.title}
-                    src={project.titleImage.file.url}
+                    fluid={project.titleImage.fluid}
                   />
                   <StyledProjectsContent>
                     <StyledTopLine>
@@ -263,8 +255,8 @@ export const query = graphql`
           title
           slug
           titleImage {
-            file {
-              url
+            fluid(maxWidth: 1000) {
+              ...GatsbyContentfulFluid
             }
           }
           order
