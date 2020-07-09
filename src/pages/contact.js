@@ -9,6 +9,7 @@ import {
   faLinkedinIn,
   faAngellist,
 } from "@fortawesome/free-brands-svg-icons"
+import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
 const Div = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const Div = styled.div`
   margin: 0 auto;
   border: 1px solid;
   border-radius: 15px;
-  justify-content: space-between;
+  justify-content: center;
 `
 
 const StyledH1 = styled.h1`
@@ -32,16 +33,18 @@ const StyledForm = styled.form`
 `
 
 const StyledUl = styled.ul`
-  margin: 30px 20px 0px 0px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  width: 81%;
+  padding: 0px;
 `
 
-const StyledLi = styled.li``
+const StyledLi = styled.li`
+  display: flex;
+  margin-bottom: 20px;
+`
 
-const IconContainer = styled.div`
+const StyledIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
@@ -54,17 +57,36 @@ const StyledInputContainer = styled.div`
   margin: 20px 20px;
 `
 
-const StyledInput = styled.input``
+const StyledInput = styled.input`
+  width: 25vw;
+`
 
 const StyledTextArea = styled.textarea`
   resize: vertical;
   min-height: 50px;
+  height: 200px;
+  width: 25vw;
 `
 
 const Label = styled.label`
   font-family: sans-serif;
   display: block;
   text-align: left;
+`
+
+const StyledFAMarkerIcon = styled(FontAwesomeIcon)`
+  margin-right: 50px;
+`
+
+const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
+  margin-right: 42px;
+`
+
+const StyledSpan = styled.span`
+  color: #333;
+  display: flex;
+  font-size: 18px;
+  margin-top: 1%;
 `
 
 const A = styled.a`
@@ -87,7 +109,7 @@ const A = styled.a`
   }
 
   @media screen and (min-width: 400px) {
-    padding: 10px;
+    padding: 20px;
   }
 `
 
@@ -127,10 +149,17 @@ const Contact = () => (
       </StyledForm>
       <StyledRightColumn>
         <StyledUl>
-          <StyledLi>Toronto, ON | Canada</StyledLi>
-          <StyledLi>adam@adampagels.com</StyledLi>
+          <StyledLi>
+            <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
+            <StyledSpan>Toronto, ON | Canada</StyledSpan>
+          </StyledLi>
+
+          <StyledLi>
+            <StyledFAEnvelopeIcon size="2x" icon={faEnvelope} />
+            <StyledSpan>adam@adampagels.com</StyledSpan>
+          </StyledLi>
         </StyledUl>
-        <IconContainer>
+        <StyledIconContainer>
           <A
             href={"https://github.com/adampagels"}
             target="_blank"
@@ -152,7 +181,7 @@ const Contact = () => (
           >
             <FontAwesomeIcon size="2x" icon={faAngellist} />
           </A>
-        </IconContainer>
+        </StyledIconContainer>
       </StyledRightColumn>
     </Div>
   </Layout>
