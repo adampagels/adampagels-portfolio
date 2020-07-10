@@ -9,13 +9,17 @@ import {
   faLinkedinIn,
   faAngellist,
 } from "@fortawesome/free-brands-svg-icons"
-import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import {
+  faMapMarkerAlt,
+  faEnvelope,
+  faFile,
+} from "@fortawesome/free-solid-svg-icons"
 
 const Div = styled.div`
   display: flex;
   width: 90%;
   margin: 0 auto;
-  border: 1px solid;
+  // border: 1px solid;
   border-radius: 15px;
   justify-content: center;
 `
@@ -29,7 +33,7 @@ const StyledH1 = styled.h1`
 
 const StyledForm = styled.form`
   text-align: left;
-  margin: 60px 20px;
+  margin: 60px 30px;
 `
 
 const StyledUl = styled.ul`
@@ -46,11 +50,11 @@ const StyledLi = styled.li`
 
 const StyledIconContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `
 
 const StyledRightColumn = styled.div`
-  margin: 60px 20px;
+  margin: 90px 30px;
 `
 
 const StyledInputContainer = styled.div`
@@ -72,26 +76,37 @@ const Label = styled.label`
   font-family: sans-serif;
   display: block;
   text-align: left;
+  visibility: hidden;
 `
 
 const StyledFAMarkerIcon = styled(FontAwesomeIcon)`
-  margin-right: 50px;
+  margin-right: 48px;
+  margin-left: 2px;
 `
 
 const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
   margin-right: 42px;
 `
 
-const StyledSpan = styled.span`
+const StyledFAFileIcon = styled(FontAwesomeIcon)`
+  margin-right: 47px;
+  margin-left: 4px;
+`
+
+const StyledTextA = styled.a`
   color: #333;
   display: flex;
   font-size: 18px;
   margin-top: 1%;
+  color: #7158d1;
+  text-decoration: none;
+  border-bottom: 2px solid #fa9670;
+  cursor: pointer;
 `
 
 const A = styled.a`
   color: #333;
-  padding: 8px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -99,7 +114,7 @@ const A = styled.a`
   transition: all ease-in-out 300ms;
   -webkit-text-decoration: none;
   text-decoration: none;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 10px;
   border-radius: 50px;
   border: 2px solid #7158d1;
 
@@ -121,27 +136,16 @@ const Contact = () => (
       <StyledForm action="action_page.php">
         <StyledInputContainer>
           <Label for="name">Your name</Label>
-          <StyledInput
-            type="text"
-            id="name"
-            name="firstname"
-            placeholder="Enter your name here"
-          />
+          <StyledInput type="text" placeholder="Enter your name here" />
         </StyledInputContainer>
         <StyledInputContainer>
           <Label for="email">Your email</Label>
-          <StyledInput
-            type="text"
-            id="email"
-            name="lastname"
-            placeholder="Enter your email here"
-          />
+          <StyledInput type="text" placeholder="Enter your email here" />
         </StyledInputContainer>
         <StyledInputContainer>
           <Label for="subject">Your message</Label>
           <StyledTextArea
             id="subject"
-            name="subject"
             placeholder="Write something.."
           ></StyledTextArea>
         </StyledInputContainer>
@@ -151,14 +155,20 @@ const Contact = () => (
         <StyledUl>
           <StyledLi>
             <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
-            <StyledSpan>Toronto, ON | Canada</StyledSpan>
+            <StyledTextA>Toronto, ON | Canada</StyledTextA>
           </StyledLi>
 
           <StyledLi>
             <StyledFAEnvelopeIcon size="2x" icon={faEnvelope} />
-            <StyledSpan>adam@adampagels.com</StyledSpan>
+            <StyledTextA>Adam@adampagels.com</StyledTextA>
+          </StyledLi>
+
+          <StyledLi>
+            <StyledFAFileIcon size="2x" icon={faFile} />
+            <StyledTextA>Resume/CV</StyledTextA>
           </StyledLi>
         </StyledUl>
+        <hr />
         <StyledIconContainer>
           <A
             href={"https://github.com/adampagels"}
@@ -182,6 +192,7 @@ const Contact = () => (
             <FontAwesomeIcon size="2x" icon={faAngellist} />
           </A>
         </StyledIconContainer>
+        <hr />
       </StyledRightColumn>
     </Div>
   </Layout>
