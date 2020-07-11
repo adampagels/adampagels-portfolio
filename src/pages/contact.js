@@ -17,11 +17,15 @@ import {
 
 const Div = styled.div`
   display: flex;
-  width: 90%;
+  flex-direction: row-reverse;
+  width: 70%;
   margin: 0 auto;
-  // border: 1px solid;
+  border: 1px #f45e67;
   border-radius: 15px;
-  justify-content: center;
+  justify-content: flex-start;
+  background-color: #f45e67;
+  position: relative;
+  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
 `
 
 const StyledH1 = styled.h1`
@@ -41,6 +45,7 @@ const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 0px;
+  margin-top: 0px;
 `
 
 const StyledLi = styled.li`
@@ -55,21 +60,62 @@ const StyledIconContainer = styled.div`
 
 const StyledRightColumn = styled.div`
   margin: 90px 30px;
+  background-color: #7158d1;
+  position: absolute;
+  left: -95px;
+  border-radius: 15px;
+  padding: 40px 45px;
+  top: -36px;
+  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
 `
 
 const StyledInputContainer = styled.div`
-  margin: 20px 20px;
+  margin: 10px 20px;
 `
 
 const StyledInput = styled.input`
+  opacity: 0.9;
+  background-color: transparent;
+  border: 2px solid #fdfdfd;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-family: sans-serif;
   width: 25vw;
+  color: #fdfdfd;
+
+  ::placeholder {
+    color: #fdfdfd;
+    opacity: 1;
+  }
+
+  ::-ms-input-placeholder {
+    color: red;
+  }
 `
 
 const StyledTextArea = styled.textarea`
+  opacity: 0.9;
+  background-color: transparent;
+  border: 2px solid #fdfdfd;
+  border-radius: 15px;
+  color: #fdfdfd;
   resize: vertical;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 18px;
   min-height: 50px;
   height: 200px;
   width: 25vw;
+
+  ::placeholder {
+    color: #fdfdfd;
+    opacity: 1;
+  }
+
+  ::-ms-input-placeholder {
+    color: #fdfdfd;
+  }
 `
 
 const Label = styled.label`
@@ -77,37 +123,55 @@ const Label = styled.label`
   display: block;
   text-align: left;
   visibility: hidden;
+  font-size: 1px;
 `
 
 const StyledFAMarkerIcon = styled(FontAwesomeIcon)`
   margin-right: 48px;
   margin-left: 2px;
+  color: #fdfdfd;
+  opacity: 0.8;
 `
 
 const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
   margin-right: 42px;
+  color: #fdfdfd;
+  opacity: 0.8;
 `
 
 const StyledFAFileIcon = styled(FontAwesomeIcon)`
   margin-right: 47px;
   margin-left: 4px;
+  color: #fdfdfd;
+  opacity: 0.8;
 `
 
 const StyledTextA = styled.a`
-  color: #333;
   display: flex;
   font-size: 18px;
   margin-top: 1%;
-  color: #7158d1;
+  font-family: sans-serif;
+  color: #fdfdfd;
   text-decoration: none;
   border-bottom: 2px solid #fa9670;
   cursor: pointer;
 `
 
+const StyledBottomLine = styled.div`
+  margin-bottom: 0px;
+  margin-top: 8px;
+  width: 100%;
+  background-color: #333;
+  height: 2px;
+`
+
+const StyledTopLine = styled(StyledBottomLine)`
+  margin-bottom: 8px;
+`
+
 const A = styled.a`
-  color: #333;
+  color: #fa9670;
   padding: 20px;
-  border-radius: 5px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   -webkit-transition: all ease-in-out 300ms;
@@ -116,7 +180,7 @@ const A = styled.a`
   text-decoration: none;
   margin: 10px 10px;
   border-radius: 50px;
-  border: 2px solid #7158d1;
+  border: 2px solid #fdfdfd;
 
   &:hover {
     box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
@@ -135,19 +199,16 @@ const Contact = () => (
     <Div>
       <StyledForm action="action_page.php">
         <StyledInputContainer>
-          <Label for="name">Your name</Label>
-          <StyledInput type="text" placeholder="Enter your name here" />
+          <Label for="name">Name</Label>
+          <StyledInput type="text" placeholder="Name" />
         </StyledInputContainer>
         <StyledInputContainer>
-          <Label for="email">Your email</Label>
-          <StyledInput type="text" placeholder="Enter your email here" />
+          <Label for="email">Email</Label>
+          <StyledInput type="text" placeholder="Email" />
         </StyledInputContainer>
         <StyledInputContainer>
-          <Label for="subject">Your message</Label>
-          <StyledTextArea
-            id="subject"
-            placeholder="Write something.."
-          ></StyledTextArea>
+          <Label for="subject">Message</Label>
+          <StyledTextArea id="subject" placeholder="Message"></StyledTextArea>
         </StyledInputContainer>
         <input type="submit" value="Submit" />
       </StyledForm>
@@ -168,7 +229,7 @@ const Contact = () => (
             <StyledTextA>Resume/CV</StyledTextA>
           </StyledLi>
         </StyledUl>
-        <hr />
+        <StyledTopLine />
         <StyledIconContainer>
           <A
             href={"https://github.com/adampagels"}
@@ -192,7 +253,7 @@ const Contact = () => (
             <FontAwesomeIcon size="2x" icon={faAngellist} />
           </A>
         </StyledIconContainer>
-        <hr />
+        <StyledBottomLine />
       </StyledRightColumn>
     </Div>
   </Layout>
