@@ -169,6 +169,26 @@ const StyledTopLine = styled(StyledBottomLine)`
   margin-bottom: 8px;
 `
 
+const StyledButtonContainer = styled.div`
+  text-align: center;
+`
+
+const StyledButton = styled.button`
+  border-radius: 15px;
+  border: none;
+  padding: 1.5vh 4vw;
+  background-color: #7158d1;
+  color: #fdfdfd;
+  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  letter-spacing: 0.2px;
+
+  :hover {
+    background-color: #7e62ea;
+  }
+`
+
 const A = styled.a`
   color: #fa9670;
   padding: 20px;
@@ -210,7 +230,9 @@ const Contact = () => (
           <Label for="subject">Message</Label>
           <StyledTextArea id="subject" placeholder="Message"></StyledTextArea>
         </StyledInputContainer>
-        <input type="submit" value="Submit" />
+        <StyledButtonContainer>
+          <StyledButton type="submit">Send Message</StyledButton>
+        </StyledButtonContainer>
       </StyledForm>
       <StyledRightColumn>
         <StyledUl>
