@@ -15,17 +15,26 @@ import {
   faFile,
 } from "@fortawesome/free-solid-svg-icons"
 
-const Div = styled.div`
+const StyledDiv = styled.div`
   display: flex;
-  flex-direction: row-reverse;
-  width: 70%;
+  flex-direction: column-reverse;
+  width: 100%;
   margin: 0 auto;
   border: 1px #f45e67;
   border-radius: 15px;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: #f45e67;
   position: relative;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
+
+  @media screen and (min-width: 520px) {
+    width: 70%;
+  }
+
+  @media screen and (min-width: 930px) {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
 `
 
 const StyledH1 = styled.h1`
@@ -33,11 +42,21 @@ const StyledH1 = styled.h1`
   font-family: sans-serif;
   font-size: 60px;
   text-align: center;
+  margin-top: 70px;
+
+  @media screen and (min-width: 930px) {
+    margin-top: 40px;
+  }
 `
 
 const StyledForm = styled.form`
-  text-align: left;
-  margin: 60px 30px;
+  margin: 30px 30px;
+  align-self: center;
+
+  @media screen and (min-width: 930px) {
+    align-self: auto;
+    margin: 60px 30px;
+  }
 `
 
 const StyledUl = styled.ul`
@@ -58,19 +77,28 @@ const StyledIconContainer = styled.div`
   justify-content: center;
 `
 
-const StyledRightColumn = styled.div`
-  margin: 90px 30px;
+const StyledContactInfo = styled.div`
+  margin: 0px;
   background-color: #7158d1;
-  position: absolute;
-  left: -95px;
   border-radius: 15px;
-  padding: 40px 45px;
-  top: -36px;
+  padding: 40px 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
+
+  @media screen and (min-width: 386px) {
+    padding: 40px 45px;
+  }
+
+  @media screen and (min-width: 930px) {
+    position: absolute;
+    left: -95px;
+    top: -36px;
+    margin: 90px 30px;
+  }
 `
 
 const StyledInputContainer = styled.div`
   margin: 10px 20px;
+  text-align: center;
 `
 
 const StyledInput = styled.input`
@@ -81,7 +109,7 @@ const StyledInput = styled.input`
   padding: 5px 10px;
   font-size: 18px;
   font-family: sans-serif;
-  width: 25vw;
+  width: 70vw;
   color: #fdfdfd;
 
   ::placeholder {
@@ -90,7 +118,16 @@ const StyledInput = styled.input`
   }
 
   ::-ms-input-placeholder {
-    color: red;
+    color: #fdfdfd;
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 520px) {
+    width: 50vw;
+  }
+
+  @media screen and (min-width: 930px) {
+    width: 25vw;
   }
 `
 
@@ -106,7 +143,7 @@ const StyledTextArea = styled.textarea`
   font-size: 18px;
   min-height: 50px;
   height: 200px;
-  width: 25vw;
+  width: 70vw;
 
   ::placeholder {
     color: #fdfdfd;
@@ -116,10 +153,17 @@ const StyledTextArea = styled.textarea`
   ::-ms-input-placeholder {
     color: #fdfdfd;
   }
+
+  @media screen and (min-width: 520px) {
+    width: 50vw;
+  }
+
+  @media screen and (min-width: 930px) {
+    width: 25vw;
+  }
 `
 
-const Label = styled.label`
-  font-family: sans-serif;
+const StyledLabel = styled.label`
   display: block;
   text-align: left;
   visibility: hidden;
@@ -127,23 +171,35 @@ const Label = styled.label`
 `
 
 const StyledFAMarkerIcon = styled(FontAwesomeIcon)`
-  margin-right: 48px;
-  margin-left: 2px;
-  color: #fdfdfd;
-  opacity: 0.8;
-`
-
-const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
-  margin-right: 42px;
-  color: #fdfdfd;
-  opacity: 0.8;
-`
-
-const StyledFAFileIcon = styled(FontAwesomeIcon)`
-  margin-right: 47px;
+  margin-right: 25px;
   margin-left: 4px;
   color: #fdfdfd;
   opacity: 0.8;
+
+  @media screen and (min-width: 346px) {
+    margin-right: 48px;
+  }
+`
+
+const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
+  margin-right: 18px;
+  color: #fdfdfd;
+  opacity: 0.8;
+
+  @media screen and (min-width: 346px) {
+    margin-right: 44px;
+  }
+`
+
+const StyledFAFileIcon = styled(FontAwesomeIcon)`
+  margin-right: 21px;
+  margin-left: 4px;
+  color: #fdfdfd;
+  opacity: 0.8;
+
+  @media screen and (min-width: 346px) {
+    margin-right: 48px;
+  }
 `
 
 const StyledTextA = styled.a`
@@ -155,6 +211,10 @@ const StyledTextA = styled.a`
   text-decoration: none;
   border-bottom: 2px solid #fa9670;
   cursor: pointer;
+
+  @media screen and (min-width: 520px) {
+    font-size: 18px;
+  }
 `
 
 const StyledBottomLine = styled.div`
@@ -189,7 +249,7 @@ const StyledButton = styled.button`
   }
 `
 
-const A = styled.a`
+const StyledA = styled.a`
   color: #fa9670;
   padding: 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
@@ -206,35 +266,31 @@ const A = styled.a`
     box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
     transform: translate(0px, -10px);
   }
-
-  @media screen and (min-width: 400px) {
-    padding: 20px;
-  }
 `
 
 const Contact = () => (
   <Layout>
     <StyledH1>let's talk code</StyledH1>
     <SEO title="Contact" />
-    <Div>
+    <StyledDiv>
       <StyledForm action="action_page.php">
         <StyledInputContainer>
-          <Label for="name">Name</Label>
+          <StyledLabel for="name">Name</StyledLabel>
           <StyledInput type="text" placeholder="Name" />
         </StyledInputContainer>
         <StyledInputContainer>
-          <Label for="email">Email</Label>
+          <StyledLabel for="email">Email</StyledLabel>
           <StyledInput type="text" placeholder="Email" />
         </StyledInputContainer>
         <StyledInputContainer>
-          <Label for="subject">Message</Label>
+          <StyledLabel for="subject">Message</StyledLabel>
           <StyledTextArea id="subject" placeholder="Message"></StyledTextArea>
         </StyledInputContainer>
         <StyledButtonContainer>
           <StyledButton type="submit">Send Message</StyledButton>
         </StyledButtonContainer>
       </StyledForm>
-      <StyledRightColumn>
+      <StyledContactInfo>
         <StyledUl>
           <StyledLi>
             <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
@@ -253,31 +309,31 @@ const Contact = () => (
         </StyledUl>
         <StyledTopLine />
         <StyledIconContainer>
-          <A
+          <StyledA
             href={"https://github.com/adampagels"}
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon size="2x" icon={faGithubAlt} />
-          </A>
-          <A
+          </StyledA>
+          <StyledA
             href={"https://www.linkedin.com/in/adampagels/"}
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon size="2x" icon={faLinkedinIn} />
-          </A>
-          <A
+          </StyledA>
+          <StyledA
             href={"https://angel.co/u/adam-pagels"}
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon size="2x" icon={faAngellist} />
-          </A>
+          </StyledA>
         </StyledIconContainer>
         <StyledBottomLine />
-      </StyledRightColumn>
-    </Div>
+      </StyledContactInfo>
+    </StyledDiv>
   </Layout>
 )
 
