@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Link from "gatsby-link"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 const StyledNav = styled.nav`
   display: flex;
@@ -28,6 +30,16 @@ const StyledNav = styled.nav`
   }
 `
 
+const ArrowPulse = keyframes`
+  0% { transform: translateX(0px); }
+  50% {transform: translateX(5px); }
+  100% {transform: translateX(0px); }
+`
+
+const StyledFAArrow = styled(FontAwesomeIcon)`
+  margin-left: 10px;
+`
+
 const StyledLink = styled(Link)`
   padding-left: 0px;
   font-size: 18px;
@@ -35,8 +47,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   padding: 10px;
   color: #7158d1;
+  font-weight: 700;
+
   &:visited {
     color: #7158d1;
+  }
+
+  &:last-child {
+    :hover {
+      ${StyledFAArrow} {
+        animation-name: ${ArrowPulse};
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+    }
   }
 
   @media (max-width: 830px) {
@@ -204,7 +228,10 @@ const Navigation = () => {
       </StyledInnerUl>
       <StyledOuterUl>
         <StyledOuterLi>
-          <StyledLink to="/contact">Get in touch</StyledLink>
+          <StyledLink to="/contact">
+            Get in touch
+            <StyledFAArrow size="1x" icon={faArrowRight} />
+          </StyledLink>
         </StyledOuterLi>
       </StyledOuterUl>
     </>
