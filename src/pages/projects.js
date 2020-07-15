@@ -39,7 +39,7 @@ const StyledProjectTitle = styled.h2`
   margin: auto 0px;
 
   @media screen and (min-width: 400px) {
-    font-size: 50px;
+    font-size: 62px;
   }
 `
 
@@ -87,6 +87,20 @@ const StyledProjects = styled.div`
   }
 
   align-self: center;
+`
+
+const StyledLink = styled(Link)`
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 900;
+  color: #7158d1;
+  text-decoration: none;
+  border-bottom: 2px solid #fa9670;
+  cursor: pointer;
+
+  &:visited {
+    color: #7158d1;
+  }
 `
 
 const StyledAContainer = styled.div`
@@ -141,7 +155,7 @@ const StyledFACodeIcon = styled(FontAwesomeIcon)`
 
 const StyledFaChevronRight = styled(FontAwesomeIcon)`
   font-size: 13px;
-  margin-left: 5px;
+  margin: 0px 0px 0px 5px;
 `
 
 const StyledTopLine = styled.div`
@@ -192,18 +206,16 @@ const Projects = ({ data }) => {
                     <StyledDescription>
                       {project.shortDescription}
                     </StyledDescription>
-                    <Link to={`/projects/${project.slug}`}>
+                    <StyledLink to={`/projects/${project.slug}`}>
                       View Project
                       <StyledFaChevronRight icon={faChevronRight} />
-                    </Link>
+                    </StyledLink>
                   </StyledProjectsContent>
                   <StyledImg fluid={project.titleImage.fluid} />
                 </StyledProjectsContentContainerEven>
               ) : (
                 <StyledProjectsContentContainerOdd>
-                  <StyledImg
-                    fluid={project.titleImage.fluid}
-                  />
+                  <StyledImg fluid={project.titleImage.fluid} />
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
@@ -231,10 +243,10 @@ const Projects = ({ data }) => {
                     <StyledDescription>
                       {project.shortDescription}
                     </StyledDescription>
-                    <Link to={`/projects/${project.slug}`}>
+                    <StyledLink to={`/projects/${project.slug}`}>
                       View Project
                       <StyledFaChevronRight icon={faChevronRight} />
-                    </Link>
+                    </StyledLink>
                   </StyledProjectsContent>
                 </StyledProjectsContentContainerOdd>
               )}
