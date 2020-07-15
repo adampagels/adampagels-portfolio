@@ -22,6 +22,21 @@ const StyledH2 = styled.h2`
   font-size: 28px;
 `
 
+const StyledMarkdownDiv = styled.div`
+  font-size: 18px;
+  line-height: 180%;
+
+  a {
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 900;
+    color: #7158d1;
+    text-decoration: none;
+    border-bottom: 2px solid #fa9670;
+    cursor: pointer;
+  }
+`
+
 const StyledP = styled.p`
   font-size: 18px;
   line-height: 180%;
@@ -146,7 +161,7 @@ const Project = ({ data }) => {
       <div>
         <div style={{ maxWidth: "700px" }}>
           <StyledH1>{title}</StyledH1>
-          <StyledP
+          <StyledMarkdownDiv
             dangerouslySetInnerHTML={{
               __html:
                 data.contentfulProjects.longDescription.childMarkdownRemark
