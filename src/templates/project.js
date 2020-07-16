@@ -3,12 +3,13 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
+import Img from "gatsby-image"
 
 const StyledH1 = styled.h1`
   font-size: 50px;
 `
 
-const StyledImage1 = styled.img`
+const StyledImage1 = styled(Img)`
   width: 100%;
   height: 50%;
   margin: 50px auto 60px auto;
@@ -70,7 +71,7 @@ const StyledTechStack = styled.div`
   }
 `
 
-const StyledImage2 = styled.img`
+const StyledImage2 = styled(Img)`
   width: 100%;
   height: 50%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
@@ -96,7 +97,7 @@ const ImageRow = styled.div`
   }
 `
 
-const StyledImage3 = styled.img`
+const StyledImage3 = styled(Img)`
   width: 100%;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
@@ -109,7 +110,7 @@ const StyledImage3 = styled.img`
   }
 `
 
-const StyledImage4 = styled.img`
+const StyledImage4 = styled(Img)`
   width: 100%;
   height: 100%;
   margin-top: 34px;
@@ -124,7 +125,7 @@ const StyledImage4 = styled.img`
   }
 `
 
-const StyledImage5 = styled.img`
+const StyledImage5 = styled(Img)`
   width: 100%;
   height: 50%;
   margin: auto;
@@ -150,11 +151,10 @@ const Project = ({ data }) => {
   let projectMedia = []
   {
     data.contentfulProjects.bodyImages.map(project => {
-      return projectMedia.push(project.file.url)
+      return projectMedia.push(project)
     })
   }
 
-  console.log(data.contentfulProjects.bodyImages)
   return (
     <Layout>
       <SEO title={title} />
@@ -169,22 +169,22 @@ const Project = ({ data }) => {
             }}
           />
         </div>
-        <StyledImage1 src={projectMedia[0]} />
+        <StyledImage1 fluid={projectMedia[0].fluid} />
         <StyledProblemContainer>
           <StyledH2>The Problem</StyledH2>
           <StyledP>{theProblem.theProblem}</StyledP>
         </StyledProblemContainer>
         <StyledTechStackRowContainer>
-          <StyledImage2 src={projectMedia[4]} />
+          <StyledImage2 fluid={projectMedia[4].fluid} />
           <StyledTechStack>
             <StyledH2>Tech Stack Explanation</StyledH2>
             <StyledP>{stackDescription.stackDescription}</StyledP>
           </StyledTechStack>
         </StyledTechStackRowContainer>
-        <StyledImage5 src={projectMedia[1]} />
+        <StyledImage5 fluid={projectMedia[1].fluid} />
         <ImageRow>
-          <StyledImage3 src={projectMedia[3]} />
-          <StyledImage4 src={projectMedia[2]} />
+          <StyledImage3 fluid={projectMedia[3].fluid} />
+          <StyledImage4 fluid={projectMedia[2].fluid} />
         </ImageRow>
         <StyledLessonsLearnedContainer>
           <h2>Lessons Learned</h2>
@@ -221,8 +221,8 @@ export const pageQuery = graphql`
         }
       }
       bodyImages {
-        file {
-          url
+        fluid(maxWidth: 1000) {
+          ...GatsbyContentfulFluid
         }
       }
     }
