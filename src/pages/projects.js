@@ -39,7 +39,7 @@ const StyledProjectTitle = styled.h2`
   margin: auto 0px;
 
   @media screen and (min-width: 400px) {
-    font-size: 62px;
+    font-size: 59px;
   }
 `
 
@@ -138,19 +138,13 @@ const A = styled.a`
 `
 
 const StyledFADemoIcon = styled(FontAwesomeIcon)`
-  font-size: 20px;
-
-  @media screen and (min-width: 400px) {
-    font-size: 25px;
-  }
+  font-size: 22px;
+  padding: 5px;
 `
 
 const StyledFACodeIcon = styled(FontAwesomeIcon)`
-  font-size: 20px;
-
-  @media screen and (min-width: 400px) {
-    font-size: 25px;
-  }
+  font-size: 22px;
+  padding: 5px;
 `
 
 const StyledFaChevronRight = styled(FontAwesomeIcon)`
@@ -168,11 +162,24 @@ const StyledDescription = styled.p`
   line-height: 170%;
 `
 
+const StyledH1 = styled.h1`
+  color: #333;
+  font-family: sans-serif;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 70px;
+
+  @media screen and (min-width: 930px) {
+    margin-top: 40px;
+  }
+`
+
 const Projects = ({ data }) => {
   const projects = data.allContentfulProjects.edges
   return (
     <Layout>
       <SEO title="Projects" />
+      <StyledH1>what i've been working on</StyledH1>
       <StyledContainer>
         {projects.map(({ node: project }) => (
           <StyledProjects>
