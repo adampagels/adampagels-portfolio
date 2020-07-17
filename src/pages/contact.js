@@ -129,6 +129,10 @@ const StyledInput = styled.input`
   @media screen and (min-width: 930px) {
     width: 25vw;
   }
+
+  @media screen and (min-width: 1460px) {
+    width: 370px;
+  }
 `
 
 const StyledTextArea = styled.textarea`
@@ -160,6 +164,10 @@ const StyledTextArea = styled.textarea`
 
   @media screen and (min-width: 930px) {
     width: 25vw;
+  }
+
+  @media screen and (min-width: 1460px) {
+    width: 370px;
   }
 `
 
@@ -211,10 +219,6 @@ const StyledTextA = styled.a`
   text-decoration: none;
   border-bottom: 2px solid #fa9670;
   cursor: pointer;
-
-  @media screen and (min-width: 520px) {
-    font-size: 18px;
-  }
 `
 
 const StyledBottomLine = styled.div`
