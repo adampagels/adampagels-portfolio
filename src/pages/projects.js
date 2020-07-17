@@ -274,7 +274,7 @@ export const query = graphql`
           title
           slug
           titleImage {
-            fluid(maxWidth: 1000) {
+            fluid(maxWidth: 1000, quality: 100) {
               ...GatsbyContentfulFluid
             }
           }

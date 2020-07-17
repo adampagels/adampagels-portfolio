@@ -221,7 +221,7 @@ export const pageQuery = graphql`
         }
       }
       bodyImages {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 1000, quality: 100) {
           ...GatsbyContentfulFluid
         }
       }
