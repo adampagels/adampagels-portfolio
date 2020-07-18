@@ -327,6 +327,7 @@ const Contact = () => {
             <StyledInput
               type="text"
               placeholder="Name"
+              name="name"
               value={name}
               onChange={event => setName(event.target.value)}
             />
@@ -336,6 +337,7 @@ const Contact = () => {
             <StyledInput
               type="email"
               placeholder="Email"
+              name="email"
               value={email}
               onChange={event => setEmail(event.target.value)}
             />
