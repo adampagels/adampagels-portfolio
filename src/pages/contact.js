@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -272,73 +272,134 @@ const StyledA = styled.a`
   }
 `
 
-const Contact = () => (
-  <Layout>
-    <StyledH1>let's talk code</StyledH1>
-    <SEO title="Contact" />
-    <StyledDiv>
-      <StyledForm action="action_page.php">
-        <StyledInputContainer>
-          <StyledLabel for="name">Name</StyledLabel>
-          <StyledInput type="text" placeholder="Name" />
-        </StyledInputContainer>
-        <StyledInputContainer>
-          <StyledLabel for="email">Email</StyledLabel>
-          <StyledInput type="text" placeholder="Email" />
-        </StyledInputContainer>
-        <StyledInputContainer>
-          <StyledLabel for="subject">Message</StyledLabel>
-          <StyledTextArea id="subject" placeholder="Message"></StyledTextArea>
-        </StyledInputContainer>
-        <StyledButtonContainer>
-          <StyledButton type="submit">Send Message</StyledButton>
-        </StyledButtonContainer>
-      </StyledForm>
-      <StyledContactInfo>
-        <StyledUl>
-          <StyledLi>
-            <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
-            <StyledTextA>Toronto, ON | Canada</StyledTextA>
-          </StyledLi>
+const Contact = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [botMessage, setBotMessage] = useState("")
 
-          <StyledLi>
-            <StyledFAEnvelopeIcon size="2x" icon={faEnvelope} />
-            <StyledTextA>Adam@adampagels.com</StyledTextA>
-          </StyledLi>
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
 
-          <StyledLi>
-            <StyledFAFileIcon size="2x" icon={faFile} />
-            <StyledTextA>Resume/CV</StyledTextA>
-          </StyledLi>
-        </StyledUl>
-        <StyledTopLine />
-        <StyledIconContainer>
-          <StyledA
-            href={"https://github.com/adampagels"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon size="2x" icon={faGithubAlt} />
-          </StyledA>
-          <StyledA
-            href={"https://www.linkedin.com/in/adampagels/"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon size="2x" icon={faLinkedinIn} />
-          </StyledA>
-          <StyledA
-            href={"https://angel.co/u/adam-pagels"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon size="2x" icon={faAngellist} />
-          </StyledA>
-        </StyledIconContainer>
-        <StyledBottomLine />
-      </StyledContactInfo>
-    </StyledDiv>
-  </Layout>
-)
+  const handleSubmit = event => {
+    event.preventDefault()
+    const form = event.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        name,
+        email,
+        message,
+        botMessage,
+      }),
+    })
+      .then(() => alert("sent!"))
+      .catch(error => alert(error))
+  }
+  return (
+    <Layout>
+      <StyledH1>let's talk code</StyledH1>
+      <SEO title="Contact" />
+      <StyledDiv>
+        <StyledForm
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <p hidden>
+            <label>
+              Don’t fill this out if you're human
+              <input
+                name="bot-field"
+                onChange={event => setBotMessage(event.target.value)}
+              />
+            </label>
+          </p>
+          <StyledInputContainer>
+            <StyledLabel htmlFor="name">Name</StyledLabel>
+            <StyledInput
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={event => setName(event.target.value)}
+            />
+          </StyledInputContainer>
+          <StyledInputContainer>
+            <StyledLabel htmlFor="email">Email</StyledLabel>
+            <StyledInput
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+            />
+          </StyledInputContainer>
+          <StyledInputContainer>
+            <StyledLabel htmlFor="message">Message</StyledLabel>
+            <StyledTextArea
+              type="text"
+              placeholder="Message"
+              name="message"
+              value={message}
+              onChange={event => setMessage(event.target.value)}
+            ></StyledTextArea>
+          </StyledInputContainer>
+          <StyledButtonContainer>
+            <StyledButton type="submit">Send Message</StyledButton>
+          </StyledButtonContainer>
+        </StyledForm>
+        <StyledContactInfo>
+          <StyledUl>
+            <StyledLi>
+              <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
+              <StyledTextA>Toronto, ON | Canada</StyledTextA>
+            </StyledLi>
+
+            <StyledLi>
+              <StyledFAEnvelopeIcon size="2x" icon={faEnvelope} />
+              <StyledTextA>Adam@adampagels.com</StyledTextA>
+            </StyledLi>
+
+            <StyledLi>
+              <StyledFAFileIcon size="2x" icon={faFile} />
+              <StyledTextA>Resume/CV</StyledTextA>
+            </StyledLi>
+          </StyledUl>
+          <StyledTopLine />
+          <StyledIconContainer>
+            <StyledA
+              href={"https://github.com/adampagels"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon size="2x" icon={faGithubAlt} />
+            </StyledA>
+            <StyledA
+              href={"https://www.linkedin.com/in/adampagels/"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon size="2x" icon={faLinkedinIn} />
+            </StyledA>
+            <StyledA
+              href={"https://angel.co/u/adam-pagels"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon size="2x" icon={faAngellist} />
+            </StyledA>
+          </StyledIconContainer>
+          <StyledBottomLine />
+        </StyledContactInfo>
+      </StyledDiv>
+    </Layout>
+  )
+}
 
 export default Contact
