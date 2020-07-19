@@ -23,7 +23,7 @@ const StyledDiv = styled.div`
   border: 1px #f45e67;
   border-radius: 15px;
   justify-content: center;
-  background-color: #f45e67;
+  background-color: #7158d1;
   position: relative;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
 
@@ -80,6 +80,7 @@ const StyledIconContainer = styled.div`
 const StyledContactInfo = styled.div`
   margin: 0px;
   background-color: #7158d1;
+  border: 3px solid #fa9670;
   border-radius: 15px;
   padding: 40px 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
@@ -241,15 +242,17 @@ const StyledButton = styled.button`
   border-radius: 15px;
   border: none;
   padding: 1.5vh 4vw;
-  background-color: #7158d1;
-  color: #fdfdfd;
+  background-color: #fdfdfd;
+  color: #7158d1;
+  font-size: 16px;
+
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: all ease-in-out 300ms;
   letter-spacing: 0.2px;
 
   :hover {
-    background-color: #7e62ea;
+    background-color: #dadada;
   }
 `
 
