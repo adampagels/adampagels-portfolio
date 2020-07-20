@@ -6,7 +6,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 
 const StyledH1 = styled.h1`
-  font-size: 50px;
+  font-size: 60px;
 `
 
 const StyledImage1 = styled(Img)`
@@ -21,11 +21,13 @@ const StyledImage1 = styled(Img)`
 
 const StyledH2 = styled.h2`
   font-size: 28px;
+  margin-top: 0px;
 `
 
 const StyledMarkdownDiv = styled.div`
   font-size: 18px;
-  line-height: 180%;
+  line-height: 150%;
+  max-width: 600px;
 
   a {
     font-size: 16px;
@@ -40,17 +42,18 @@ const StyledMarkdownDiv = styled.div`
 
 const StyledP = styled.p`
   font-size: 18px;
-  line-height: 180%;
+  line-height: 150%;
+  margin-bottom: 0px;
 `
 
 const StyledProblemContainer = styled.div`
-  margin: 70px auto;
-  max-width: 700px;
+  margin: 120px auto;
+  max-width: 600px;
 `
 
 const StyledTechStackRowContainer = styled.div`
   display: flex;
-  margin: 120px auto;
+  margin: 0px auto;
   width: 100%;
   flex-direction: column;
 
@@ -60,9 +63,9 @@ const StyledTechStackRowContainer = styled.div`
 `
 
 const StyledTechStack = styled.div`
-  width: 80%;
   margin-left: 0px;
   margin-top: 100px;
+  max-width: 600px;
 
   @media screen and (min-width: 830px) {
     width: 45%;
@@ -128,7 +131,7 @@ const StyledImage4 = styled(Img)`
 const StyledImage5 = styled(Img)`
   width: 100%;
   height: 50%;
-  margin: auto;
+  margin: 120px auto auto auto;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
     rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 8px 8px,
     rgba(0, 0, 0, 0.11) 0px 16px 16px, rgba(0, 0, 0, 0.11) 0px 32px 32px;
@@ -136,7 +139,7 @@ const StyledImage5 = styled(Img)`
 `
 
 const StyledLessonsLearnedContainer = styled.div`
-  max-width: 700px;
+  max-width: 600px;
   margin: 70px 0px;
 `
 
@@ -187,7 +190,7 @@ const Project = ({ data }) => {
           <StyledImage4 fluid={projectMedia[2].fluid} />
         </ImageRow>
         <StyledLessonsLearnedContainer>
-          <h2>Lessons Learned</h2>
+          <StyledH2>Lessons Learned</StyledH2>
           <StyledP>{lessonsLearned.lessonsLearned}</StyledP>
         </StyledLessonsLearnedContainer>
         <Link to="/projects">View more projects</Link>
