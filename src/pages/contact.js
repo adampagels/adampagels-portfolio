@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithubAlt,
@@ -13,6 +13,8 @@ import {
   faMapMarkerAlt,
   faEnvelope,
   faFile,
+  faCheck,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons"
 
 const StyledDiv = styled.div`
@@ -239,13 +241,16 @@ const StyledButtonContainer = styled.div`
 `
 
 const StyledButton = styled.button`
+  transition: 2s padding;
   border-radius: 15px;
   border: none;
-  padding: 1.5vh 4vw;
+  padding: ${props =>
+    props.formStatus === "success" || props.formStatus === "error"
+      ? "10px 18vw"
+      : "10px 4vw"};
   background-color: #fdfdfd;
   color: #7158d1;
   font-size: 16px;
-
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: all ease-in-out 300ms;
@@ -253,6 +258,27 @@ const StyledButton = styled.button`
 
   :hover {
     background-color: #dadada;
+  }
+
+  @media screen and (min-width: 520px) {
+    padding: ${props =>
+      props.formStatus === "success" || props.formStatus === "error"
+        ? "10px 15vw"
+        : "10px 4vw"};
+  }
+
+  @media screen and (min-width: 930px) {
+    padding: ${props =>
+      props.formStatus === "success" || props.formStatus === "error"
+        ? "10px 7vw"
+        : "10px 4vw"};
+  }
+
+  @media screen and (min-width: 1460px) {
+    padding: ${props =>
+      props.formStatus === "success" || props.formStatus === "error"
+        ? "10px 118px"
+        : "10px 4vw"};
   }
 `
 
@@ -275,16 +301,67 @@ const StyledA = styled.a`
   }
 `
 
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
+const StyledSuccessMessage = styled.p`
+  margin: 0px;
+  color: green;
+  animation-name: ${FadeIn};
+  animation-duration: 1s;
+`
+
+const StyledErrorMessage = styled.p`
+  margin: 0px;
+  color: red;
+  animation-name: ${FadeIn};
+  animation-duration: 1s;
+`
+
 const Contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [botMessage, setBotMessage] = useState("")
+  const [formStatus, setFormStatus] = useState(null)
+  const [buttonText, setButtonText] = useState("Send Message")
+
+  useEffect(() => {
+    displayButtonText()
+  }, [formStatus])
 
   const encode = data => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&")
+  }
+
+  const displayButtonText = () => {
+    const successMessage = (
+      <StyledSuccessMessage>
+        <FontAwesomeIcon size="1x" icon={faCheck} /> Message sent
+      </StyledSuccessMessage>
+    )
+    const errorMessage = (
+      <StyledErrorMessage>
+        <FontAwesomeIcon size="1x" icon={faTimes} />
+        Try again later
+      </StyledErrorMessage>
+    )
+    if (formStatus === "success") {
+      setButtonText(successMessage)
+    } else if (formStatus === "error") {
+      setButtonText(errorMessage)
+    } else {
+      setButtonText("Send Message")
+    }
+    return buttonText
   }
 
   const handleSubmit = event => {
@@ -301,8 +378,8 @@ const Contact = () => {
         botMessage,
       }),
     })
-      .then(() => alert("sent!"))
-      .catch(error => alert(error))
+      .then(() => setFormStatus("success"))
+      .catch(() => setFormStatus("error"))
   }
   return (
     <Layout>
@@ -356,7 +433,9 @@ const Contact = () => {
             ></StyledTextArea>
           </StyledInputContainer>
           <StyledButtonContainer>
-            <StyledButton type="submit">Send Message</StyledButton>
+            <StyledButton type="submit" formStatus={formStatus}>
+              {buttonText}
+            </StyledButton>
           </StyledButtonContainer>
         </StyledForm>
         <StyledContactInfo>
