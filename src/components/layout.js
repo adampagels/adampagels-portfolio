@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Navigation from "../components/Navigation"
@@ -9,16 +9,18 @@ import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
 
 const Layout = ({ children }) => {
-  document.body.addEventListener("mousedown", () => {
-    document.body.classList.add("using-mouse")
-  })
+  useEffect(() => {
+    document.body.addEventListener("mousedown", () => {
+      document.body.classList.add("using-mouse")
+    })
 
-  // Re-enable focus styling when Tab is pressed
-  document.body.addEventListener("keydown", event => {
-    if (event.keyCode === 9) {
-      document.body.classList.remove("using-mouse")
-    }
-  })
+    // Re-enable focus styling when Tab is pressed
+    document.body.addEventListener("keydown", event => {
+      if (event.keyCode === 9) {
+        document.body.classList.remove("using-mouse")
+      }
+    })
+  }, [])
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
