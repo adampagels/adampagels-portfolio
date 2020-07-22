@@ -9,6 +9,17 @@ import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
 
 const Layout = ({ children }) => {
+  document.body.addEventListener("mousedown", () => {
+    document.body.classList.add("using-mouse")
+  })
+
+  // Re-enable focus styling when Tab is pressed
+  document.body.addEventListener("keydown", event => {
+    if (event.keyCode === 9) {
+      document.body.classList.remove("using-mouse")
+    }
+  })
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
