@@ -15,6 +15,7 @@ import {
   faFile,
   faCheck,
   faTimes,
+  faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons"
 
 const StyledDiv = styled.div`
@@ -202,6 +203,18 @@ const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
   }
 `
 
+const StyledFAWarningIcon = styled(FontAwesomeIcon)`
+  margin-right: 5px;
+`
+
+const StyledFASuccessIcon = styled(FontAwesomeIcon)`
+  margin-right: 5px;
+`
+
+const StyledFAErrorIcon = styled(FontAwesomeIcon)`
+  margin-right: 5px;
+`
+
 const StyledFAFileIcon = styled(FontAwesomeIcon)`
   margin-right: 21px;
   margin-left: 4px;
@@ -324,6 +337,24 @@ const StyledErrorMessage = styled.p`
   animation-duration: 1s;
 `
 
+const StyledNameWarning = styled.p`
+  font-size: 18px;
+  margin: 0px;
+  transition: 2s all;
+  color: yellow;
+  text-align: center;
+  display: ${props => (props.nameWarning ? "block" : "none")};
+`
+
+const StyledEmailWarning = styled(StyledNameWarning)`
+  display: ${props => (props.emailWarning ? "block" : "none")};
+`
+
+const StyledMessageWarning = styled(StyledNameWarning)`
+  display: ${props => (props.messageWarning ? "block" : "none")};
+  margin-bottom: 14px;
+`
+
 const Contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -331,6 +362,9 @@ const Contact = () => {
   const [botMessage, setBotMessage] = useState("")
   const [formStatus, setFormStatus] = useState(null)
   const [buttonText, setButtonText] = useState("Send Message")
+  const [nameWarning, setNameWarning] = useState(false)
+  const [emailWarning, setEmailWarning] = useState(false)
+  const [messageWarning, setMessageWarning] = useState(false)
 
   useEffect(() => {
     displayButtonText()
@@ -342,15 +376,33 @@ const Contact = () => {
       .join("&")
   }
 
+  const validateForm = () => {
+    if (name.length < 3) {
+      setNameWarning(true)
+    } else {
+      setNameWarning(false)
+    }
+    if (email.length < 6) {
+      setEmailWarning(true)
+    } else {
+      setEmailWarning(false)
+    }
+    if (message.length < 8) {
+      setMessageWarning(true)
+    } else {
+      setMessageWarning(false)
+    }
+  }
+
   const displayButtonText = () => {
     const successMessage = (
       <StyledSuccessMessage>
-        <FontAwesomeIcon size="1x" icon={faCheck} /> Message sent
+        <StyledFASuccessIcon size="1x" icon={faCheck} /> Message sent
       </StyledSuccessMessage>
     )
     const errorMessage = (
       <StyledErrorMessage>
-        <FontAwesomeIcon size="1x" icon={faTimes} />
+        <StyledFAErrorIcon size="1x" icon={faTimes} />
         Try again later
       </StyledErrorMessage>
     )
@@ -366,20 +418,24 @@ const Contact = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    const form = event.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        name,
-        email,
-        message,
-        botMessage,
-      }),
-    })
-      .then(() => setFormStatus("success"))
-      .catch(() => setFormStatus("error"))
+    if (nameWarning || emailWarning || messageWarning) {
+      return null
+    } else {
+      const form = event.target
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          name,
+          email,
+          message,
+          botMessage,
+        }),
+      })
+        .then(() => setFormStatus("success"))
+        .catch(() => setFormStatus("error"))
+    }
   }
   return (
     <Layout>
@@ -412,6 +468,10 @@ const Contact = () => {
               onChange={event => setName(event.target.value)}
             />
           </StyledInputContainer>
+          <StyledNameWarning nameWarning={nameWarning}>
+            <StyledFAWarningIcon size="1x" icon={faExclamationTriangle} />
+            Your name must be at least 3 characters
+          </StyledNameWarning>
           <StyledInputContainer>
             <StyledLabel htmlFor="email">Email</StyledLabel>
             <StyledInput
@@ -422,6 +482,10 @@ const Contact = () => {
               onChange={event => setEmail(event.target.value)}
             />
           </StyledInputContainer>
+          <StyledEmailWarning emailWarning={emailWarning}>
+            <StyledFAWarningIcon size="1x" icon={faExclamationTriangle} />
+            Your email must be at least 6 characters
+          </StyledEmailWarning>
           <StyledInputContainer>
             <StyledLabel htmlFor="message">Message</StyledLabel>
             <StyledTextArea
@@ -432,8 +496,16 @@ const Contact = () => {
               onChange={event => setMessage(event.target.value)}
             ></StyledTextArea>
           </StyledInputContainer>
+          <StyledMessageWarning messageWarning={messageWarning}>
+            <StyledFAWarningIcon size="1x" icon={faExclamationTriangle} />
+            Your message must be at least 8 characters
+          </StyledMessageWarning>
           <StyledButtonContainer>
-            <StyledButton type="submit" formStatus={formStatus}>
+            <StyledButton
+              onClick={() => validateForm()}
+              type="submit"
+              formStatus={formStatus}
+            >
               {buttonText}
             </StyledButton>
           </StyledButtonContainer>
