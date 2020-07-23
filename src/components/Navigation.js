@@ -9,7 +9,7 @@ const StyledNav = styled.nav`
   list-style: none;
   width: 100%;
   display: flex;
-  background-color: #fbfbfb;
+  background-color: #FAD1A7;
   position: relative;
   justify-content: space-between;
   text-transform: lowercase;
@@ -19,10 +19,10 @@ const StyledNav = styled.nav`
 
   @media (max-width: 830px) {
     transition: all 0.22s ease-out;
-    background-color: ${props => (!props.open ? "transparent" : "#fbfbfb")};
+    background-color: #FAD1A7
     margin-top: 0px;
     position: fixed;
-    height: 70px;
+    height: 82px;
     top: 0;
     left: 0;
     right: 0;
@@ -117,7 +117,7 @@ const StyledInnerUl = styled.ul`
     align-items: center;
     width: 100%;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 60px;
   }
 `
 
