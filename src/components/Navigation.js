@@ -213,6 +213,7 @@ const Toggle = styled.div`
   border-radius: 39px;
   padding: 25px;
   top: 6px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   @media (max-width: 830px) {
     display: flex;
