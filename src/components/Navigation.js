@@ -46,11 +46,11 @@ const StyledLink = styled(Link)`
   display: block;
   text-decoration: none;
   padding: 10px;
-  color: #7158d1;
+  color: #333;
   font-weight: 700;
 
   &:visited {
-    color: #7158d1;
+    color: #333;
   }
 
   &:last-child {
@@ -205,6 +205,20 @@ const Hamburger = styled.div`
     display: flex;
 `
 
+const Toggle = styled.div`
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 7px;
+  border-radius: 39px;
+  padding: 25px;
+  top: 6px;
+
+  @media (max-width: 930px) {
+    display: flex;
+  }
+`
+
 const Navigation = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
@@ -240,11 +254,9 @@ const Navigation = () => {
     <StyledNav open={navbarOpen}>
       {navbarOpen ? <Navbox>{navbar}</Navbox> : <Navbox open>{navbar}</Navbox>}
       <StyledHeaderLink to="/">Adam Pagels</StyledHeaderLink>
-      {navbarOpen ? (
-        <Hamburger open={"open"} onClick={() => setNavbarOpen(!navbarOpen)} />
-      ) : (
-        <Hamburger onClick={() => setNavbarOpen(!navbarOpen)} />
-      )}
+      <Toggle onClick={() => setNavbarOpen(!navbarOpen)}>
+        {navbarOpen ? <Hamburger open={"open"} /> : <Hamburger />}
+      </Toggle>
     </StyledNav>
   )
 }
