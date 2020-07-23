@@ -214,7 +214,7 @@ const Toggle = styled.div`
   padding: 25px;
   top: 6px;
 
-  @media (max-width: 930px) {
+  @media (max-width: 830px) {
     display: flex;
   }
 `
