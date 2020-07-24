@@ -20,22 +20,31 @@ const StyledContainer = styled.div`
 
 const StyledTopH1 = styled.h1`
   font-family: sans-serif;
-  color: #f75f68;
+  color: #333;
   font-size: 20vw;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  @media (min-width: 1400px) {
-    font-size: 281px;
+  margin: 0px 0px 0px 1.6%;
+
+  @media (min-width: 500px) {
+    font-size: 15vw;
+  }
+
+  @media (min-width: 1950px) {
+    font-size: 275px;
   }
 `
 
 const StyledBottomH1 = styled.h1`
-  color: #7158d1;
+  color: #557276;
   font-size: 20vw;
   font-family: sans-serif;
-  margin: -5% 0px 0px -1.6%;
-  @media (min-width: 1400px) {
-    font-size: 281px;
+  margin: -5% 0px 0px 0px;
+
+  @media (min-width: 500px) {
+    font-size: 15vw;
+  }
+
+  @media (min-width: 1950px) {
+    font-size: 275px;
   }
 `
 
@@ -45,12 +54,18 @@ const StyledTopLineContainer = styled.div`
 
 const StyledH2 = styled.h2`
   font-family: sans-serif;
-  color: #fa9770;
+  color: #333;
+  opacity: 0.9;
   font-size: 3.5vw;
   font-style: italic;
   margin: auto 0px auto 2%;
-  @media (min-width: 1400px) {
-    font-size: 51px;
+
+  @media (min-width: 500px) {
+    font-size: 2.6vw;
+  }
+
+  @media (min-width: 1950px) {
+    font-size: 47px;
   }
 `
 
