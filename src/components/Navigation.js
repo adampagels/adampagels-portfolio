@@ -3,6 +3,7 @@ import Link from "gatsby-link"
 import styled, { keyframes } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { useLocation } from "@reach/router"
 
 const StyledNav = styled.nav`
   display: flex;
@@ -40,35 +41,31 @@ const StyledFAArrow = styled(FontAwesomeIcon)`
   margin-left: 10px;
 `
 
-const StyledLink = styled(Link)`
-  padding-left: 0px;
-  font-size: 18px;
-  display: block;
-  text-decoration: none;
-  padding: 10px;
-  color: #333;
-  font-weight: 700;
-
-  &:visited {
-    color: #333;
-  }
-
-  &:last-child {
-    :hover {
-      ${StyledFAArrow} {
-        animation-name: ${ArrowPulse};
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-      }
-    }
-  }
+const StyledHover = styled.div`
+  pointer-events: none;
+  border-radius: 15px;
+  display: ${props =>
+    (props.location.pathname.length < 2 ||
+      props.location.pathname.includes("contact")) &&
+    "none"};
+  transition: 0.5s all;
+  position: absolute;
+  background-color: #557276;
+  transform: ${props =>
+    props.location.pathname.includes("projects") && "translateX(10px)"};
+  transform: ${props =>
+    props.location.pathname.includes("about") && "translateX(138px)"};
+  transform: ${props =>
+    props.location.pathname.includes("blog") && "translateX(246px)"};
+  top: 50px;
+  width: ${props => props.location.pathname.includes("projects") && "93px"};
+  width: ${props => props.location.pathname.includes("about") && "75px"};
+  width: ${props => props.location.pathname.includes("blog") && "65px"};
+  height: 5px;
+  z-index: 1;
 
   @media (max-width: 830px) {
-    color: #fbfbfb;
-
-    &:visited {
-      color: #fbfbfb;
-    }
+    display: none;
   }
 `
 
@@ -110,6 +107,7 @@ const StyledInnerUl = styled.ul`
   margin: 0px auto;
   display: flex;
   padding-left: 0px;
+  position: relative;
 
   @media (max-width: 830px) {
     flex-direction: column;
@@ -128,12 +126,71 @@ const StyledInnerLi = styled.li`
   margin-right: 20px;
   font-family: sans-serif;
 
+  &:nth-child(1) {
+    :hover {
+      ~ ${StyledHover} {
+        transform: translateX(10px);
+        width: 93px;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    :hover {
+      ~ ${StyledHover} {
+        transform: translateX(138px);
+        width: 75px;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    :hover {
+      ~ ${StyledHover} {
+        transform: translateX(246px);
+        width: 65px;
+      }
+    }
+  }
+
   @media (max-width: 830px) {
     border: 1px solid #8c6eff;
     justify-content: center;
     margin-right: 0px;
     width: 100%;
     background-color: #7158d1;
+  }
+`
+
+const StyledLink = styled(Link)`
+  padding-left: 0px;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  color: #333;
+  font-weight: 700;
+
+  &:visited {
+    color: #333;
+  }
+
+  &:last-child {
+    :hover {
+      ${StyledFAArrow} {
+        animation-name: ${ArrowPulse};
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+
+  @media (max-width: 830px) {
+    color: #fbfbfb;
+
+    &:visited {
+      color: #fbfbfb;
+    }
   }
 `
 
@@ -223,6 +280,8 @@ const Toggle = styled.div`
 const Navigation = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
+  const location = useLocation()
+
   const navbar = (
     <>
       <StyledOuterUl>
@@ -232,7 +291,13 @@ const Navigation = () => {
       </StyledOuterUl>
       <StyledInnerUl>
         <StyledInnerLi>
-          <StyledLink to="/projects">Projects</StyledLink>
+          <StyledLink
+            partiallyActive={true}
+            activeClassName="active"
+            to="/projects"
+          >
+            Projects
+          </StyledLink>
         </StyledInnerLi>
         <StyledInnerLi>
           <StyledLink to="/about">About</StyledLink>
@@ -240,10 +305,15 @@ const Navigation = () => {
         <StyledInnerLi>
           <StyledLink to="/blog">Blog</StyledLink>
         </StyledInnerLi>
+        <StyledHover location={location} />
       </StyledInnerUl>
       <StyledOuterUl>
         <StyledOuterLi>
-          <StyledLink to="/contact">
+          <StyledLink
+            partiallyActive={true}
+            activeClassName="active"
+            to="/contact"
+          >
             Get in touch
             <StyledFAArrow size="1x" icon={faArrowRight} />
           </StyledLink>
