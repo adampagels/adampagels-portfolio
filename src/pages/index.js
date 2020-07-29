@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 
 const StyledContainer = styled.div`
+  display: flex;
   position: absolute;
   left: 50%;
   top: 47%;
@@ -14,46 +15,39 @@ const StyledContainer = styled.div`
   z-index: 1;
   background-size: 200%;
   @media (min-width: 830px) {
-    top: 53%;
+    top: 50%;
   }
 `
 
 const StyledTopH1 = styled.h1`
-  font-family: sans-serif;
   color: #333;
   font-size: 20vw;
-  margin: 0px 0px 0px 1.6%;
+  margin: 0px;
+  text-align: center;
 
   @media (min-width: 500px) {
-    font-size: 15vw;
+    font-size: 13vw;
   }
 
   @media (min-width: 1950px) {
-    font-size: 275px;
+    font-size: 195px;
   }
 `
 
 const StyledBottomH1 = styled.h1`
   color: #557276;
   font-size: 20vw;
-  font-family: sans-serif;
-  margin: -5% 0px 0px 0px;
+  margin: 0px;
 
   @media (min-width: 500px) {
-    font-size: 15vw;
+    font-size: 13vw;
   }
 
   @media (min-width: 1950px) {
-    font-size: 275px;
+    font-size: 195px;
   }
 `
-
-const StyledTopLineContainer = styled.div`
-  display: flex;
-`
-
 const StyledH2 = styled.h2`
-  font-family: sans-serif;
   color: #333;
   opacity: 0.9;
   font-size: 3.5vw;
@@ -75,13 +69,11 @@ const Index = () => (
   <Layout>
     <SEO title="Home" />
     <StyledContainer>
-      <StyledTopLineContainer>
-        <StyledTopH1>ADAM</StyledTopH1>
-        <StyledH2>
-          Full-Stack <Span>Developer</Span>
-        </StyledH2>
-      </StyledTopLineContainer>
-      <StyledBottomH1>PAGELS</StyledBottomH1>
+      <StyledTopH1>adam</StyledTopH1>
+      <StyledBottomH1>pagels</StyledBottomH1>
+      {/* <StyledH2>
+          Full-Stack Developer
+        </StyledH2> */}
     </StyledContainer>
   </Layout>
 )

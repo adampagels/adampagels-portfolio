@@ -124,7 +124,6 @@ const StyledInnerLi = styled.li`
   text-decoration: none;
   padding: 10px;
   margin-right: 20px;
-  font-family: sans-serif;
 
   &:nth-child(1) {
     :hover {
@@ -198,7 +197,6 @@ const StyledOuterLi = styled.li`
   display: flex;
   text-decoration: none;
   padding: 10px;
-  font-family: sans-serif;
 
   @media (max-width: 830px) {
     border: 1px solid #8c6eff;

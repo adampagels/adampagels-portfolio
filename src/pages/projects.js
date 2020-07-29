@@ -46,6 +46,7 @@ const StyledProjectTitle = styled.h2`
 const StyledTitleLink = styled(Link)`
   text-decoration: none;
   color: #333;
+  font-family: "Roboto", sans-serif;
 }
 
   &:visited {
@@ -164,7 +165,6 @@ const StyledDescription = styled.p`
 
 const StyledH1 = styled.h1`
   color: #333;
-  font-family: sans-serif;
   font-size: 60px;
   text-align: center;
   margin-top: 70px;

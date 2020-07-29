@@ -6,7 +6,6 @@ import SEO from "../components/seo"
 
 const StyledH1 = styled.h1`
   color: #333;
-  font-family: sans-serif;
   font-size: 60px;
   text-align: center;
   margin-top: 70px;

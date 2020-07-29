@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 
 const StyledH1 = styled.h1`
   font-size: 60px;
+  font-family: "Roboto", sans-serif;
 `
 
 const StyledImage1 = styled(Img)`
@@ -31,7 +32,6 @@ const StyledMarkdownDiv = styled.div`
 
   a {
     font-size: 16px;
-    font-family: sans-serif;
     font-weight: 900;
     color: #7158d1;
     text-decoration: none;

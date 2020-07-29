@@ -1,9 +1,21 @@
 html,
 body {
-  background-color: #FAD1A7;
+  background-color: #fad1a7;
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+h2,
+p,
+li,
+input,
+textarea {
+  font-family: "Montserrat", sans-serif;
 }
 
 body.using-mouse :focus {
