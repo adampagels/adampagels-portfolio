@@ -36,7 +36,7 @@ const StyledTopH1 = styled.h1`
 
 const StyledBottomH1 = styled.h1`
   color: #557276;
-  font-size: 20vw;
+  font-size: 15vw;
   margin: 0px;
 
   @media (min-width: 500px) {
