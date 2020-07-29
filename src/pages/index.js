@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 
 const StyledTopH1 = styled.h1`
   color: #333;
-  font-size: 20vw;
+  font-size: 15vw;
   margin: 0px;
   text-align: center;
 
