@@ -21,6 +21,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Montserrat`,
+            variants: [`200`, `300`, `400`, `500`],
+          },
+          {
+            family: `Roboto`,
+            variants: [`300`, `400`, `500`],
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
