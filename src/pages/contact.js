@@ -26,7 +26,7 @@ const StyledDiv = styled.div`
   border: 1px #f45e67;
   border-radius: 15px;
   justify-content: center;
-  background-color: #7158d1;
+  background-color: #9e1e1e;
   position: relative;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
 
@@ -42,7 +42,6 @@ const StyledDiv = styled.div`
 
 const StyledH1 = styled.h1`
   color: #333;
-  font-family: sans-serif;
   font-size: 60px;
   text-align: center;
   margin-top: 70px;
@@ -82,8 +81,7 @@ const StyledIconContainer = styled.div`
 
 const StyledContactInfo = styled.div`
   margin: 0px;
-  background-color: #7158d1;
-  border: 3px solid #fa9670;
+  background-color: #cc5428;
   border-radius: 15px;
   padding: 40px 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
@@ -112,7 +110,6 @@ const StyledInput = styled.input`
   border-radius: 15px;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: sans-serif;
   width: 70vw;
   color: #fdfdfd;
 
@@ -147,7 +144,6 @@ const StyledTextArea = styled.textarea`
   color: #fdfdfd;
   resize: vertical;
   padding: 5px 10px;
-  font-family: sans-serif;
   font-size: 18px;
   min-height: 50px;
   height: 200px;
@@ -230,11 +226,16 @@ const StyledTextA = styled.a`
   display: flex;
   font-size: 18px;
   margin-top: 1%;
-  font-family: sans-serif;
   color: #fdfdfd;
   text-decoration: none;
-  border-bottom: 2px solid #fa9670;
+  border-bottom: 2px solid #fdfdfd;
   cursor: pointer;
+`
+
+const StyledP = styled(StyledTextA)`
+  margin-bottom: 0px;
+  border: none;
+  cursor: text;
 `
 
 const StyledBottomLine = styled.div`
@@ -242,6 +243,7 @@ const StyledBottomLine = styled.div`
   margin-top: 8px;
   width: 100%;
   background-color: #333;
+  opacity: 0.9;
   height: 2px;
 `
 
@@ -262,7 +264,7 @@ const StyledButton = styled.button`
       ? "10px 18vw"
       : "10px 4vw"};
   background-color: #fdfdfd;
-  color: #7158d1;
+  color: #333;
   font-size: 16px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -296,7 +298,8 @@ const StyledButton = styled.button`
 `
 
 const StyledA = styled.a`
-  color: #fa9670;
+  background-color: #fdfdfd;
+  color: #333;
   padding: 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -514,12 +517,14 @@ const Contact = () => {
           <StyledUl>
             <StyledLi>
               <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
-              <StyledTextA>Toronto, ON | Canada</StyledTextA>
+              <StyledP>Toronto, ON | Canada</StyledP>
             </StyledLi>
 
             <StyledLi>
               <StyledFAEnvelopeIcon size="2x" icon={faEnvelope} />
-              <StyledTextA>Adam@adampagels.com</StyledTextA>
+              <StyledTextA href="mailto: adam@adampagels.com">
+                Adam@adampagels.com
+              </StyledTextA>
             </StyledLi>
 
             <StyledLi>
@@ -544,7 +549,7 @@ const Contact = () => {
               <FontAwesomeIcon size="2x" icon={faLinkedinIn} />
             </StyledA>
             <StyledA
-              href={"https://angel.co/u/adam-pagels"}
+              href={"https://angel.co/u/adampagels"}
               target="_blank"
               rel="noopener noreferrer"
             >
