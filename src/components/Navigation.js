@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
   list-style: none;
   width: 100%;
   display: flex;
-  background-color: #FAD1A7;
+  background-color: #f7e4c2;
   position: relative;
   justify-content: space-between;
   text-transform: lowercase;
@@ -31,32 +31,41 @@ const StyledNav = styled.nav`
   }
 `
 
-const ArrowPulse = keyframes`
+const ArrowPulseRight = keyframes`
   0% { transform: translateX(0px); }
   50% {transform: translateX(5px); }
   100% {transform: translateX(0px); }
 `
 
+const ArrowPulseDown = keyframes`
+  0% { transform: translateY(0px); }
+  50% {transform: translateY(5px); }
+  100% {transform: translateY(0px); }
+`
+
 const StyledFAArrow = styled(FontAwesomeIcon)`
   margin-left: 10px;
+  color: #9e1e1e;
+  transform: ${props =>
+    props.location.pathname.includes("contact") && "rotate(90deg)"};
 `
 
 const StyledHover = styled.div`
   pointer-events: none;
   border-radius: 15px;
-  display: ${props =>
+  opacity: ${props =>
     (props.location.pathname.length < 2 ||
       props.location.pathname.includes("contact")) &&
-    "none"};
+    "0"};
   transition: 0.5s all;
   position: absolute;
-  background-color: #557276;
+  background-color: #9e1e1e;
   transform: ${props =>
     props.location.pathname.includes("projects") && "translateX(10px)"};
   transform: ${props =>
-    props.location.pathname.includes("about") && "translateX(138px)"};
+    props.location.pathname.includes("about") && "translateX(142px)"};
   transform: ${props =>
-    props.location.pathname.includes("blog") && "translateX(246px)"};
+    props.location.pathname.includes("blog") && "translateX(255px)"};
   top: 50px;
   width: ${props => props.location.pathname.includes("projects") && "93px"};
   width: ${props => props.location.pathname.includes("about") && "75px"};
@@ -130,6 +139,7 @@ const StyledInnerLi = styled.li`
       ~ ${StyledHover} {
         transform: translateX(10px);
         width: 93px;
+        opacity: 1;
       }
     }
   }
@@ -137,8 +147,9 @@ const StyledInnerLi = styled.li`
   &:nth-child(2) {
     :hover {
       ~ ${StyledHover} {
-        transform: translateX(138px);
+        transform: translateX(142px);
         width: 75px;
+        opacity: 1;
       }
     }
   }
@@ -146,8 +157,9 @@ const StyledInnerLi = styled.li`
   &:nth-child(3) {
     :hover {
       ~ ${StyledHover} {
-        transform: translateX(246px);
+        transform: translateX(255px);
         width: 65px;
+        opacity: 1;
       }
     }
   }
@@ -162,6 +174,7 @@ const StyledInnerLi = styled.li`
 `
 
 const StyledLink = styled(Link)`
+  transition: 0.5s;
   padding-left: 0px;
   font-size: 18px;
   display: block;
@@ -170,17 +183,22 @@ const StyledLink = styled(Link)`
   color: #333;
   font-weight: 700;
 
+  &.active {
+    &:visited {
+      color: ${props => (props.inner ? "#333" : "#9e1e1e")};
+    }
+  }
+
   &:visited {
     color: #333;
   }
 
-  &:last-child {
-    :hover {
-      ${StyledFAArrow} {
-        animation-name: ${ArrowPulse};
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-      }
+  :hover {
+    color: ${props => (props.inner ? "#333" : "#9e1e1e")};
+    ${StyledFAArrow} {
+      animation-name: ${ArrowPulseRight};
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
     }
   }
 
@@ -284,36 +302,39 @@ const Navigation = () => {
     <>
       <StyledOuterUl>
         <StyledOuterLi>
-          <StyledLink to="/">Adam Pagels</StyledLink>
+          <StyledLink activeClassName="active" to="/">
+            Adam Pagels
+          </StyledLink>
         </StyledOuterLi>
       </StyledOuterUl>
       <StyledInnerUl>
-        <StyledInnerLi>
-          <StyledLink
-            partiallyActive={true}
-            activeClassName="active"
-            to="/projects"
-          >
+        <StyledInnerLi location={location}>
+          <StyledLink inner={true} to="/projects">
             Projects
           </StyledLink>
         </StyledInnerLi>
-        <StyledInnerLi>
-          <StyledLink to="/about">About</StyledLink>
+        <StyledInnerLi location={location}>
+          <StyledLink inner={true} to="/about">
+            About
+          </StyledLink>
         </StyledInnerLi>
-        <StyledInnerLi>
-          <StyledLink to="/blog">Blog</StyledLink>
+        <StyledInnerLi location={location}>
+          <StyledLink inner={true} to="/blog">
+            Blog
+          </StyledLink>
         </StyledInnerLi>
         <StyledHover location={location} />
       </StyledInnerUl>
       <StyledOuterUl>
         <StyledOuterLi>
           <StyledLink
+            location={location}
             partiallyActive={true}
             activeClassName="active"
             to="/contact"
           >
             Get in touch
-            <StyledFAArrow size="1x" icon={faArrowRight} />
+            <StyledFAArrow location={location} size="1x" icon={faArrowRight} />
           </StyledLink>
         </StyledOuterLi>
       </StyledOuterUl>
