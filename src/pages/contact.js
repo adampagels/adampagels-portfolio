@@ -284,12 +284,12 @@ const StyledButton = styled.button`
   color: #333;
   font-size: 16px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
+  cursor: ${props => props.formStatus !== "success" && "pointer"};
   transition: all ease-in-out 300ms;
   letter-spacing: 0.2px;
 
   :hover {
-    background-color: #dadada;
+    background-color: ${props => props.formStatus !== "success" && "#dadada"};
   }
 
   @media screen and (min-width: 520px) {
@@ -529,7 +529,7 @@ const Contact = () => {
           </StyledMessageWarning>
           <StyledButtonContainer>
             <StyledButton
-              onClick={() => validateForm()}
+              {...(formStatus === null && { onClick: validateForm })}
               type="submit"
               formStatus={formStatus}
             >
