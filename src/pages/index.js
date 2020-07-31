@@ -5,7 +5,6 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 
 const StyledContainer = styled.div`
-  display: flex;
   position: absolute;
   left: 50%;
   top: 47%;
@@ -19,48 +18,46 @@ const StyledContainer = styled.div`
   }
 `
 
-const StyledTopH1 = styled.h1`
+const StyledNameContainer = styled.div`
+  display: flex;
+`
+
+const StyledH1 = styled.h1`
   color: #333;
   font-size: 15vw;
+  font-family: "Roboto", sans-serif;
   margin: 0px;
   text-align: center;
-
   @media (min-width: 500px) {
     font-size: 13vw;
   }
-
   @media (min-width: 1950px) {
     font-size: 195px;
   }
-`
 
-const StyledBottomH1 = styled.h1`
-  color: #557276;
-  font-size: 15vw;
-  margin: 0px;
-
-  @media (min-width: 500px) {
-    font-size: 13vw;
-  }
-
-  @media (min-width: 1950px) {
-    font-size: 195px;
+  &:nth-child(2) {
+    color: #9e1e1e;
   }
 `
+
 const StyledH2 = styled.h2`
   color: #333;
-  opacity: 0.9;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.7;
   font-size: 3.5vw;
   font-style: italic;
   margin: auto 0px auto 2%;
-
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
-
   @media (min-width: 1950px) {
     font-size: 47px;
   }
+`
+
+const StyledH2Div = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const Span = styled.span``
@@ -69,11 +66,14 @@ const Index = () => (
   <Layout>
     <SEO title="Home" />
     <StyledContainer>
-      <StyledTopH1>adam</StyledTopH1>
-      <StyledBottomH1>pagels</StyledBottomH1>
-      {/* <StyledH2>
-          Full-Stack Developer
-        </StyledH2> */}
+      <StyledNameContainer>
+        <StyledH1>adam</StyledH1>
+        <StyledH1>pagels</StyledH1>
+      </StyledNameContainer>
+      <StyledH2Div>
+        <StyledH2>Full-Stack Developer</StyledH2>
+        <StyledH2>Based in Toronto</StyledH2>
+      </StyledH2Div>
     </StyledContainer>
   </Layout>
 )
