@@ -230,12 +230,29 @@ const StyledTextA = styled.a`
   text-decoration: none;
   border-bottom: 2px solid #fdfdfd;
   cursor: pointer;
+  transition: all ease-in-out 300ms;
+
+  :hover {
+    opacity: 0.5;
+  }
+
+  :active {
+    font-size: 20px;
+  }
 `
 
 const StyledP = styled(StyledTextA)`
   margin-bottom: 0px;
   border: none;
   cursor: text;
+
+  :hover {
+    opacity: 1;
+  }
+
+  :active {
+    font-size: 18px;
+  }
 `
 
 const StyledBottomLine = styled.div`
