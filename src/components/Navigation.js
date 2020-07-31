@@ -20,7 +20,7 @@ const StyledNav = styled.nav`
 
   @media (max-width: 830px) {
     transition: all 0.22s ease-out;
-    background-color: #FAD1A7
+    background-color: #f7e4c2
     margin-top: 0px;
     position: fixed;
     height: 82px;
