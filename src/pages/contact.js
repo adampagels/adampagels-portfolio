@@ -403,6 +403,9 @@ const Contact = () => {
   }
 
   const validateForm = () => {
+    if (formStatus === "success") {
+      return null
+    }
     if (name.length < 3) {
       setNameWarning(true)
     } else {
@@ -445,7 +448,12 @@ const Contact = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    if (nameWarning || emailWarning || messageWarning) {
+    if (
+      nameWarning ||
+      emailWarning ||
+      messageWarning ||
+      formStatus === "success"
+    ) {
       return null
     } else {
       const form = event.target
@@ -529,7 +537,7 @@ const Contact = () => {
           </StyledMessageWarning>
           <StyledButtonContainer>
             <StyledButton
-              {...(formStatus === null && { onClick: validateForm })}
+              onClick={() => validateForm()}
               type="submit"
               formStatus={formStatus}
             >
