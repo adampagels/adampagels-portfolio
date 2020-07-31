@@ -373,6 +373,12 @@ const Contact = () => {
     displayButtonText()
   }, [formStatus])
 
+  const clearFormState = () => {
+    setName("")
+    setEmail("")
+    setMessage("")
+  }
+
   const encode = data => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -411,6 +417,7 @@ const Contact = () => {
     )
     if (formStatus === "success") {
       setButtonText(successMessage)
+      clearFormState()
     } else if (formStatus === "error") {
       setButtonText(errorMessage)
     } else {
