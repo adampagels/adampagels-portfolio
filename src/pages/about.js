@@ -30,7 +30,7 @@ const StyledImageWrapper = styled.div`
   margin-top: 20px;
   margin-right: 16px;
 
-  @media screen and (min-width: 370px) {
+  @media screen and (min-width: 380px) {
     width: 350px;
     margin-right: 12px;
   }
@@ -51,7 +51,7 @@ const StyledH1 = styled.h1`
   text-align: center;
   margin-top: 70px;
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 830px) {
     margin-top: 40px;
   }
 `
