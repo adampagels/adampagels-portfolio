@@ -10,7 +10,7 @@ const StyledH1 = styled.h1`
   text-align: center;
   margin-top: 70px;
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 830px) {
     margin-top: 40px;
   }
 `
