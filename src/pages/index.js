@@ -25,7 +25,7 @@ const StyledNameContainer = styled.div`
 const StyledH1 = styled.h1`
   color: #333;
   font-size: 15vw;
-  font-family: "Roboto", sans-serif;
+  font-weight: 600;
   margin: 0px;
   text-align: center;
   @media (min-width: 500px) {
@@ -44,6 +44,7 @@ const StyledH2 = styled.h2`
   color: #333;
   font-family: "Roboto", sans-serif;
   opacity: 0.7;
+  font-weight: 500;
   font-size: 3.5vw;
   font-style: italic;
   margin: auto 0px auto 2%;
@@ -60,8 +61,6 @@ const StyledH2Div = styled.div`
   justify-content: space-between;
 `
 
-const Span = styled.span``
-
 const Index = () => (
   <Layout>
     <SEO title="Home" />
@@ -71,7 +70,7 @@ const Index = () => (
         <StyledH1>pagels</StyledH1>
       </StyledNameContainer>
       <StyledH2Div>
-        <StyledH2>Full-Stack Developer</StyledH2>
+        <StyledH2>Front-End Developer</StyledH2>
         <StyledH2>Based in Toronto</StyledH2>
       </StyledH2Div>
     </StyledContainer>
