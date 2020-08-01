@@ -62,6 +62,18 @@ const StyledTitleLink = styled(Link)`
   }
 `
 
+const ImageLink = styled(Link)`
+  transition-duration: 0.3s;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+
+  :hover {
+    transform: scale(1.03);
+  }
+`
+
 const StyledProjectsContent = styled.div`
   display: block;
   margin-right: 30px;
@@ -236,11 +248,15 @@ const Projects = ({ data }) => {
                       <StyledFaChevronRight icon={faChevronRight} />
                     </StyledLink>
                   </StyledProjectsContent>
-                  <StyledImg fluid={project.titleImage.fluid} />
+                  <ImageLink to={`/projects/${project.slug}`}>
+                    <StyledImg fluid={project.titleImage.fluid} />
+                  </ImageLink>
                 </StyledProjectsContentContainerEven>
               ) : (
                 <StyledProjectsContentContainerOdd>
-                  <StyledImg fluid={project.titleImage.fluid} />
+                  <ImageLink to={`/projects/${project.slug}`}>
+                    <StyledImg fluid={project.titleImage.fluid} />
+                  </ImageLink>
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
