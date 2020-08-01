@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Adam Pagels`,
-    description: `Full-Stack JavaScript Developer`,
+    description: `Front-End JavaScript Developer. Based in Toronto.`,
     author: `Adam Pagels`,
     siteUrl: `https://www.adampagels.com`,
   },
@@ -30,7 +30,7 @@ module.exports = {
           },
           {
             family: `Roboto`,
-            variants: [`300`, `400`, `500`],
+            variants: [`300`, `400`, `500`, `600`],
           },
         ],
       },
