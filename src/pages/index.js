@@ -46,7 +46,7 @@ const StyledH2 = styled.h2`
   font-weight: 500;
   font-size: 3.5vw;
   font-style: italic;
-  margin: auto 0px auto 2%;
+  margin: 1% 3% auto 2%;
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
