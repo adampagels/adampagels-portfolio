@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Link from "gatsby-link"
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { useLocation } from "@reach/router"
@@ -35,12 +35,6 @@ const ArrowPulseRight = keyframes`
   0% { transform: translateX(0px); }
   50% {transform: translateX(5px); }
   100% {transform: translateX(0px); }
-`
-
-const ArrowPulseDown = keyframes`
-  0% { transform: translateY(0px); }
-  50% {transform: translateY(5px); }
-  100% {transform: translateY(0px); }
 `
 
 const StyledFAArrow = styled(FontAwesomeIcon)`
@@ -196,7 +190,11 @@ const StyledLink = styled(Link)`
   :hover {
     color: ${props => (props.inner ? "#333" : "#9e1e1e")};
     ${StyledFAArrow} {
-      animation-name: ${ArrowPulseRight};
+      animation-name: ${props =>
+        !props.location.pathname.includes("contact") &&
+        css`
+          ${ArrowPulseRight}
+        `};
       animation-duration: 1s;
       animation-iteration-count: infinite;
     }
@@ -302,24 +300,24 @@ const Navigation = () => {
     <>
       <StyledOuterUl>
         <StyledOuterLi>
-          <StyledLink activeClassName="active" to="/">
+          <StyledLink location={location} activeClassName="active" to="/">
             Adam Pagels
           </StyledLink>
         </StyledOuterLi>
       </StyledOuterUl>
       <StyledInnerUl>
         <StyledInnerLi location={location}>
-          <StyledLink inner={true} to="/projects">
+          <StyledLink location={location} inner={true} to="/projects">
             Projects
           </StyledLink>
         </StyledInnerLi>
         <StyledInnerLi location={location}>
-          <StyledLink inner={true} to="/about">
+          <StyledLink location={location} inner={true} to="/about">
             About
           </StyledLink>
         </StyledInnerLi>
         <StyledInnerLi location={location}>
-          <StyledLink inner={true} to="/blog">
+          <StyledLink location={location} inner={true} to="/blog">
             Blog
           </StyledLink>
         </StyledInnerLi>
