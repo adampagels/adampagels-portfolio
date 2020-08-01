@@ -44,10 +44,18 @@ const StyledProjectTitle = styled.h2`
 `
 
 const StyledTitleLink = styled(Link)`
+  transition: 0.5s;
   text-decoration: none;
   color: #333;
   font-family: "Roboto", sans-serif;
 }
+
+  :hover {
+    color: #9e1e1e;
+    &:visited {
+      color: #9e1e1e;
+    }
+  }
 
   &:visited {
     color: #333;
@@ -94,13 +102,22 @@ const StyledLink = styled(Link)`
   font-size: 16px;
   font-family: sans-serif;
   font-weight: 900;
-  color: #7158d1;
+  color: #333;
   text-decoration: none;
-  border-bottom: 2px solid #fa9670;
+  border-bottom: 2px solid #9e1e1e;
   cursor: pointer;
+  transition: all ease-in-out 300ms;
+
+  :hover {
+    opacity: 0.6;
+  }
+
+  :active {
+    font-size: 20px;
+  }
 
   &:visited {
-    color: #7158d1;
+    color: #333;
   }
 `
 
@@ -114,8 +131,9 @@ const StyledAContainer = styled.div`
   }
 `
 
-const A = styled.a`
-  color: #333;
+const StyledA = styled.a`
+  color: #fdfdfd;
+  background-color: #9e1e1e;
   padding: 8px;
   border-radius: 5px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
@@ -125,8 +143,8 @@ const A = styled.a`
   -webkit-text-decoration: none;
   text-decoration: none;
   margin: 10px 0px 10px 10px;
-  border-radius: 50px;
-  border: 2px solid #7158d1;
+  border-radius: 50%;
+  border: 2px solid #9e1e1e;
 
   &:hover {
     box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
@@ -194,20 +212,20 @@ const Projects = ({ data }) => {
                         </StyledTitleLink>
                       </StyledProjectTitle>
                       <StyledAContainer>
-                        <A
+                        <StyledA
                           href={project.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <StyledFADemoIcon icon={faGamepad} />
-                        </A>
-                        <A
+                        </StyledA>
+                        <StyledA
                           href={project.codeLink}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <StyledFACodeIcon icon={faCode} />
-                        </A>
+                        </StyledA>
                       </StyledAContainer>
                     </StyledTopLine>
                     <StyledDescription>
@@ -231,20 +249,20 @@ const Projects = ({ data }) => {
                         </StyledTitleLink>
                       </StyledProjectTitle>
                       <StyledAContainer>
-                        <A
+                        <StyledA
                           href={project.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <StyledFADemoIcon icon={faGamepad} />
-                        </A>
-                        <A
+                        </StyledA>
+                        <StyledA
                           href={project.codeLink}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <StyledFACodeIcon icon={faCode} />
-                        </A>
+                        </StyledA>
                       </StyledAContainer>
                     </StyledTopLine>
                     <StyledDescription>
