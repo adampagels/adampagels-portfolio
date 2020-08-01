@@ -39,24 +39,25 @@ const StyledProjectTitle = styled.h2`
   font-size: 40px;
   margin: auto 0px;
 
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 475px) {
     font-size: 59px;
   }
 `
 
 const StyledTitleLink = styled(Link)`
-  transition: 0.5s;
+  transition: all ease-in-out 300ms;
   text-decoration: none;
   color: #333;
   font-family: "Roboto", sans-serif;
 }
 
-  :hover {
-    color: #9e1e1e;
-    &:visited {
-      color: #9e1e1e;
-    }
-  }
+:hover {
+  opacity: 0.6;
+}
+
+:active {
+  font-size: 80px;
+}
 
   &:visited {
     color: #333;
@@ -78,6 +79,7 @@ const ImageLink = styled(Link)`
 const StyledProjectsContent = styled.div`
   display: block;
   margin-right: 30px;
+  margin-top: 10px;
 
   &:nth-child(even) {
     margin-left: 0px;
@@ -85,6 +87,10 @@ const StyledProjectsContent = styled.div`
     @media screen and (min-width: 830px) {
       margin-left: 30px;
     }
+  }
+
+  @media screen and (min-width: 830px) {
+    margin-top: 0px;
   }
   align-self: center;
 `
@@ -100,6 +106,7 @@ const StyledImg = styled(Img)`
 
 const StyledContainer = styled.div`
   margin-top: 100px;
+  margin-bottom: 50px;
 `
 
 const StyledProjects = styled.div`
@@ -113,13 +120,12 @@ const StyledProjects = styled.div`
 
 const StyledLink = styled(Link)`
   font-size: 16px;
-  font-family: sans-serif;
-  font-weight: 900;
   color: #333;
   text-decoration: none;
   border-bottom: 2px solid #9e1e1e;
   cursor: pointer;
   transition: all ease-in-out 300ms;
+  font-weight: 500;
 
   :hover {
     opacity: 0.6;
@@ -147,7 +153,7 @@ const StyledAContainer = styled.div`
 const StyledA = styled.a`
   color: #fdfdfd;
   background-color: #9e1e1e;
-  padding: 8px;
+  padding: 4px;
   border-radius: 5px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -164,7 +170,7 @@ const StyledA = styled.a`
     transform: translate(0px, -10px);
   }
 
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 475px) {
     padding: 10px;
   }
 `
@@ -179,9 +185,9 @@ const StyledFACodeIcon = styled(FontAwesomeIcon)`
   padding: 5px;
 `
 
-const StyledFaChevronRight = styled(FontAwesomeIcon)`
+const StyledFAArrowRight = styled(FontAwesomeIcon)`
   font-size: 13px;
-  margin: 0px 0px 0px 5px;
+  margin: 0px 0px 1px 5px;
 `
 
 const StyledTopLine = styled.div`
@@ -235,7 +241,7 @@ const Projects = ({ data }) => {
                     </StyledDescription>
                     <StyledLink to={`/projects/${project.slug}`}>
                       View Project
-                      <StyledFaChevronRight icon={faChevronRight} />
+                      <StyledFAArrowRight icon={faChevronRight} />
                     </StyledLink>
                   </StyledProjectsContent>
                   <ImageLink to={`/projects/${project.slug}`}>
@@ -276,7 +282,7 @@ const Projects = ({ data }) => {
                     </StyledDescription>
                     <StyledLink to={`/projects/${project.slug}`}>
                       View Project
-                      <StyledFaChevronRight icon={faChevronRight} />
+                      <StyledFAArrowRight icon={faChevronRight} />
                     </StyledLink>
                   </StyledProjectsContent>
                 </StyledProjectsContentContainerOdd>
