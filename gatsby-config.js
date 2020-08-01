@@ -26,11 +26,11 @@ module.exports = {
         fonts: [
           {
             family: `Montserrat`,
-            variants: [`200`, `300`, `400`, `500`],
+            variants: [`400`, `500`],
           },
           {
             family: `Roboto`,
-            variants: [`300`, `400`, `500`, `700`],
+            variants: [`400`, `500`, `700`],
           },
         ],
       },
