@@ -25,7 +25,7 @@ const StyledNameContainer = styled.div`
 const StyledH1 = styled.h1`
   color: #333;
   font-size: 15vw;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0px;
   text-align: center;
   @media (min-width: 500px) {
