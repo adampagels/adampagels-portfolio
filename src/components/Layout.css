@@ -12,11 +12,13 @@ h1 {
 }
 
 h2,
+a,
 p,
 li,
 input,
 textarea {
   font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 body.using-mouse :focus {
