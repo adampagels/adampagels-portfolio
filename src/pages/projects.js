@@ -10,6 +10,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 import Img from "gatsby-image"
+import PageHeader from "../components/pageHeader"
 
 const StyledProjectsContentContainerOdd = styled.div`
   display: flex;
@@ -189,19 +190,8 @@ const StyledTopLine = styled.div`
 
 const StyledDescription = styled.p`
   font-size: 18px;
-  color: #222;
+  color: #444;
   line-height: 170%;
-`
-
-const StyledH1 = styled.h1`
-  color: #333;
-  font-size: 60px;
-  text-align: center;
-  margin-top: 70px;
-
-  @media screen and (min-width: 830px) {
-    margin-top: 40px;
-  }
 `
 
 const Projects = ({ data }) => {
@@ -209,7 +199,7 @@ const Projects = ({ data }) => {
   return (
     <Layout>
       <SEO title="Projects" />
-      <StyledH1>what i've been working on</StyledH1>
+      <PageHeader heading={"what i've been working on"} />
       <StyledContainer>
         {projects.map(({ node: project }) => (
           <StyledProjects>

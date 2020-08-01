@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/image"
 import styled from "styled-components"
+import PageHeader from "../components/pageHeader"
 
 const StyledContentContainer = styled.div`
   display: flex;
@@ -45,17 +46,6 @@ const StyledImageWrapper = styled.div`
   }
 `
 
-const StyledH1 = styled.h1`
-  color: #333;
-  font-size: 60px;
-  text-align: center;
-  margin-top: 70px;
-
-  @media screen and (min-width: 830px) {
-    margin-top: 40px;
-  }
-`
-
 const StyledIntroP = styled.p`
   color: #6c675d;
   font-size: 24px;
@@ -78,7 +68,7 @@ const ImageBorder = styled.div`
 const About = () => (
   <Layout>
     <SEO title="About" />
-    <StyledH1>learn more about me</StyledH1>
+    <PageHeader heading={"learn more about me"} />
     <StyledContentContainer>
       <StyledImageWrapper>
         <Image />

@@ -17,6 +17,7 @@ import {
   faTimes,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons"
+import PageHeader from "../components/pageHeader"
 
 const StyledDiv = styled.div`
   display: flex;
@@ -37,17 +38,6 @@ const StyledDiv = styled.div`
   @media screen and (min-width: 930px) {
     flex-direction: row-reverse;
     justify-content: flex-start;
-  }
-`
-
-const StyledH1 = styled.h1`
-  color: #333;
-  font-size: 60px;
-  text-align: center;
-  margin-top: 70px;
-
-  @media screen and (min-width: 830px) {
-    margin-top: 40px;
   }
 `
 
@@ -474,7 +464,7 @@ const Contact = () => {
   }
   return (
     <Layout>
-      <StyledH1>let's talk code</StyledH1>
+      <PageHeader heading={"let's talk code"} />
       <SEO title="Contact" />
       <StyledDiv>
         <StyledForm
