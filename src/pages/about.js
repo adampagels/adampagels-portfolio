@@ -6,17 +6,43 @@ import styled from "styled-components"
 
 const StyledContentContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 `
 
 const StyledPContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  max-width: 800px;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 400px;
+  }
 `
 
 const StyledImageWrapper = styled.div`
-  width: 450px;
+  width: 320px;
+  margin-top: 20px;
+  margin-right: 16px;
+
+  @media screen and (min-width: 370px) {
+    width: 350px;
+    margin-right: 12px;
+  }
+
+  @media screen and (min-width: 500px) {
+    width: 450px;
+    margin-right: 0px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: 0px;
+  }
 `
 
 const StyledH1 = styled.h1`
@@ -36,7 +62,10 @@ const StyledIntroP = styled.p`
 `
 
 const StyledDescriptionP = styled.p`
+  color: #333;
   line-height: 150%;
+  font-size: 18px;
+  width: 100%;
 `
 
 const ImageBorder = styled.div`
