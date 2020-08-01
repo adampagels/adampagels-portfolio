@@ -39,9 +39,13 @@ const ArrowPulseRight = keyframes`
 
 const StyledFAArrow = styled(FontAwesomeIcon)`
   margin-left: 10px;
-  color: #9e1e1e;
+  color: #fdfdfd;
   transform: ${props =>
     props.location.pathname.includes("contact") && "rotate(90deg)"};
+
+  @media (min-width: 830px) {
+    color: #9e1e1e;
+  }
 `
 
 const StyledHover = styled.div`
@@ -86,7 +90,7 @@ const StyledHeaderLink = styled(Link)`
     color: #7158d1;
 
     &:visited {
-      color: #7158d1;
+      color: #333;
     }
   }
 `
@@ -159,27 +163,33 @@ const StyledInnerLi = styled.li`
   }
 
   @media (max-width: 830px) {
-    border: 1px solid #8c6eff;
+    &:nth-child(1) {
+      border-top: 2px solid #6c675d;
+    }
+    border: 1px solid #6c675d;
     justify-content: center;
     margin-right: 0px;
     width: 100%;
-    background-color: #7158d1;
+    background-color: #333;
   }
 `
 
 const StyledLink = styled(Link)`
+  font-weight: 500;
   transition: 0.5s;
   padding-left: 0px;
-  font-size: 18px;
+  font-size: 20px;
   display: block;
   text-decoration: none;
   padding: 10px;
   color: #333;
-  font-weight: 700;
 
-  &.active {
-    &:visited {
-      color: ${props => (props.inner ? "#333" : "#9e1e1e")};
+  @media (min-width: 830px) {
+    font-size: 18px;
+    &.active {
+      &:visited {
+        color: ${props => (props.inner ? "#333" : "#9e1e1e")};
+      }
     }
   }
 
@@ -201,10 +211,10 @@ const StyledLink = styled(Link)`
   }
 
   @media (max-width: 830px) {
-    color: #fbfbfb;
+    color: #fdfdfd;
 
     &:visited {
-      color: #fbfbfb;
+      color: #fdfdfd;
     }
   }
 `
@@ -215,10 +225,11 @@ const StyledOuterLi = styled.li`
   padding: 10px;
 
   @media (max-width: 830px) {
-    border: 1px solid #8c6eff;
+    border-top: 1px solid #6c675d;
+    border-bottom: 2px solid #6c675d;
     width: 100%;
     justify-content: center;
-    background-color: #7158d1;
+    background-color: #333;
   }
 `
 
@@ -241,7 +252,7 @@ const Navbox = styled.div`
 
 const Hamburger = styled.div`
   display: none;
-  background-color: #7158d1;
+  background-color: #333;
   width: 30px;
   height: 3px;
   transition: all 0.3s linear;
@@ -254,7 +265,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #7158d1;
+    background-color: #333;
     content: "";
     position: absolute;
     transition: all 0.3s linear;
