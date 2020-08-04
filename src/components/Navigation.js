@@ -87,7 +87,7 @@ const StyledHeaderLink = styled(Link)`
     position: fixed;
     top: 20px;
     left: 25px;
-    color: #7158d1;
+    color: #333;
 
     &:visited {
       color: #333;
