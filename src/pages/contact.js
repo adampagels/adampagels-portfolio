@@ -19,7 +19,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import PageHeader from "../components/pageHeader"
 
+const FadeInAnimation = keyframes`
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
 const StyledDiv = styled.div`
+  opacity: 0;
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
@@ -30,6 +42,10 @@ const StyledDiv = styled.div`
   background-color: #9e1e1e;
   position: relative;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
+  animation: ${FadeInAnimation};
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
 
   @media screen and (min-width: 520px) {
     width: 70%;
@@ -70,11 +86,16 @@ const StyledIconContainer = styled.div`
 `
 
 const StyledContactInfo = styled.div`
+  opacity: 0;
   margin: 0px;
   background-color: #cc5428;
   border-radius: 15px;
   padding: 40px 20px;
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
+  animation: ${FadeInAnimation};
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
 
   @media screen and (min-width: 386px) {
     padding: 40px 45px;

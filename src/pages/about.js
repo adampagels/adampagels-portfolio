@@ -2,8 +2,30 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/image"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import PageHeader from "../components/pageHeader"
+
+const EnterLeftAnimation = keyframes`
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
+const EnterRightAnimation = keyframes`
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
 
 const StyledContentContainer = styled.div`
   display: flex;
@@ -17,9 +39,14 @@ const StyledContentContainer = styled.div`
 `
 
 const StyledPContainer = styled.div`
+  opacity: 0;
   display: flex;
   flex-direction: column;
   max-width: 800px;
+  animation: ${EnterRightAnimation};
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
 
   @media screen and (min-width: 1024px) {
     max-width: 400px;
@@ -27,9 +54,14 @@ const StyledPContainer = styled.div`
 `
 
 const StyledImageWrapper = styled.div`
+  opacity: 0;
   width: 320px;
   margin-top: 20px;
   margin-right: 16px;
+  animation: ${EnterLeftAnimation};
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
 
   @media screen and (min-width: 380px) {
     width: 350px;
