@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faCode,
@@ -12,9 +12,25 @@ import {
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
 
+const EnterAnimation = keyframes`
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
 const StyledProjectsContentContainerOdd = styled.div`
+  opacity: 0;
   display: flex;
   flex-direction: column;
+  animation: ${EnterAnimation};
+  animation-duration: 1s;
+  animation-delay: ${props => props.order * 0.4 + "s"};
+  animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {
     width: 900px;
@@ -24,9 +40,14 @@ const StyledProjectsContentContainerOdd = styled.div`
 `
 
 const StyledProjectsContentContainerEven = styled.div`
+  opacity: 0;
   display: flex;
   flex-direction: column-reverse;
   margin: 100px 0px 100px 0px;
+  animation: ${EnterAnimation};
+  animation-duration: 1s;
+  animation-delay: ${props => props.order * 0.4 + "s"};
+  animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {
     width: 900px;
@@ -211,7 +232,8 @@ const Projects = ({ data }) => {
           <StyledProjects>
             <>
               {project && project.title === projects[1].node.title ? (
-                <StyledProjectsContentContainerEven>
+                <StyledProjectsContentContainerEven order={project.order}>
+                  {console.log(project.order * 1)}
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
@@ -249,7 +271,7 @@ const Projects = ({ data }) => {
                   </ImageLink>
                 </StyledProjectsContentContainerEven>
               ) : (
-                <StyledProjectsContentContainerOdd>
+                <StyledProjectsContentContainerOdd order={project.order}>
                   <ImageLink to={`/projects/${project.slug}`}>
                     <StyledImg fluid={project.titleImage.fluid} />
                   </ImageLink>
