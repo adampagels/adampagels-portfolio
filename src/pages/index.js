@@ -2,7 +2,38 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
+const EnterAnimationUp = keyframes`
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
+const EnterAnimationDown = keyframes`
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
+const FadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+  }
+`
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -23,6 +54,11 @@ const StyledNameContainer = styled.div`
 `
 
 const StyledH1 = styled.h1`
+  opacity: 0;
+  animation: ${EnterAnimationUp};
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
   color: #333;
   font-size: 15vw;
   margin: 0px;
@@ -36,22 +72,38 @@ const StyledH1 = styled.h1`
 
   &:nth-child(2) {
     color: #9e1e1e;
+    animation: ${EnterAnimationDown};
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
   }
 `
 
 const StyledH2 = styled.h2`
+  opacity: 0;
   color: #333;
   font-family: "Roboto", sans-serif;
-  opacity: 0.7;
   font-weight: 500;
   font-size: 3.5vw;
   font-style: italic;
   margin: 1% 3% auto 2%;
+  animation: ${FadeInAnimation};
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1.9s;
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
   @media (min-width: 1950px) {
     font-size: 47px;
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+    animation: ${FadeInAnimation};
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.8s;
   }
 `
 
