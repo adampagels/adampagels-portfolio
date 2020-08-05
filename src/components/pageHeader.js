@@ -21,7 +21,7 @@ const StyledH1 = styled.h1`
   animation: ${EnterAnimation};
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
-  animation-delay: 0.7s;
+  animation-delay: 0.3s;
 
   @media screen and (min-width: 475px) {
     font-size: 60px;

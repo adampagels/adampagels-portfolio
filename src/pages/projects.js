@@ -30,7 +30,7 @@ const StyledProjectsContentContainerOdd = styled.div`
   animation: ${EnterAnimation};
   animation-duration: 1.2s;
   animation-delay: ${props =>
-    props.order === 3 ? "2s" : props.order * 1.2 + "s"};
+    props.order === 3 ? "1.7s" : props.order * 0.7 + "s"};
   animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {
@@ -47,7 +47,7 @@ const StyledProjectsContentContainerEven = styled.div`
   margin: 100px 0px 100px 0px;
   animation: ${EnterAnimation};
   animation-duration: 1.2s;
-  animation-delay: ${props => props.order * 0.8 + "s"};
+  animation-delay: ${props => props.order * 0.6 + "s"};
   animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {

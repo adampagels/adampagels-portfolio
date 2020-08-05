@@ -57,7 +57,7 @@ const StyledH1 = styled.h1`
   animation: ${EnterAnimationUp};
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  animation-delay: 0.7s;
+  animation-delay: 0.5s;
   color: #333;
   font-size: 15vw;
   margin: 0px;
@@ -74,7 +74,7 @@ const StyledH1 = styled.h1`
     animation: ${EnterAnimationDown};
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
-    animation-delay: 0.7s;
+    animation-delay: 0.5s;
   }
 `
 
@@ -89,7 +89,7 @@ const StyledH2 = styled.h2`
   animation: ${FadeInAnimation};
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 1.7s;
+  animation-delay: 1.6s;
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
@@ -102,7 +102,7 @@ const StyledH2 = styled.h2`
     animation: ${FadeInAnimation};
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    animation-delay: 2.4s;
+    animation-delay: 2.3s;
   }
 `
 

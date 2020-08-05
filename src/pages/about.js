@@ -46,7 +46,7 @@ const StyledPContainer = styled.div`
   animation: ${EnterRightAnimation};
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  animation-delay: 1.2s;
+  animation-delay: 0.7s;
 
   @media screen and (min-width: 1024px) {
     max-width: 400px;
@@ -61,7 +61,7 @@ const StyledImageWrapper = styled.div`
   animation: ${EnterLeftAnimation};
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  animation-delay: 1.2s;
+  animation-delay: 0.7s;
 
   @media screen and (min-width: 380px) {
     width: 350px;
