@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const EnterAnimation = keyframes`
   from {
@@ -28,8 +29,9 @@ const StyledProjectsContentContainerOdd = styled.div`
   display: flex;
   flex-direction: column;
   animation: ${EnterAnimation};
-  animation-duration: 1s;
-  animation-delay: ${props => props.order * 0.4 + "s"};
+  animation-duration: 1.2s;
+  animation-delay: ${props =>
+    props.order === 3 ? "2s" : props.order * 1.2 + "s"};
   animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {
@@ -45,8 +47,8 @@ const StyledProjectsContentContainerEven = styled.div`
   flex-direction: column-reverse;
   margin: 100px 0px 100px 0px;
   animation: ${EnterAnimation};
-  animation-duration: 1s;
-  animation-delay: ${props => props.order * 0.4 + "s"};
+  animation-duration: 1.2s;
+  animation-delay: ${props => props.order * 0.8 + "s"};
   animation-fill-mode: forwards;
 
   @media screen and (min-width: 830px) {
@@ -65,7 +67,7 @@ const StyledProjectTitle = styled.h2`
   }
 `
 
-const StyledTitleLink = styled(Link)`
+const StyledTitleLink = styled(AniLink)`
   transition: all ease-in-out 300ms;
   text-decoration: none;
   color: #333;
@@ -85,7 +87,7 @@ const StyledTitleLink = styled(Link)`
   }
 `
 
-const ImageLink = styled(Link)`
+const ImageLink = styled(AniLink)`
   transition-duration: 0.3s;
   height: 100%;
   width: 100%;
@@ -139,7 +141,7 @@ const StyledProjects = styled.div`
   align-self: center;
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   font-size: 16px;
   color: #333;
   text-decoration: none;
@@ -237,7 +239,11 @@ const Projects = ({ data }) => {
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
-                        <StyledTitleLink to={`/projects/${project.slug}`}>
+                        <StyledTitleLink
+                          fade
+                          duration={0.5}
+                          to={`/projects/${project.slug}`}
+                        >
                           {project.title}
                         </StyledTitleLink>
                       </StyledProjectTitle>
@@ -261,24 +267,40 @@ const Projects = ({ data }) => {
                     <StyledDescription>
                       {project.shortDescription}
                     </StyledDescription>
-                    <StyledLink to={`/projects/${project.slug}`}>
+                    <StyledLink
+                      fade
+                      duration={0.5}
+                      to={`/projects/${project.slug}`}
+                    >
                       View Project
                       <StyledFAArrowRight icon={faChevronRight} />
                     </StyledLink>
                   </StyledProjectsContent>
-                  <ImageLink to={`/projects/${project.slug}`}>
+                  <ImageLink
+                    fade
+                    duration={0.5}
+                    to={`/projects/${project.slug}`}
+                  >
                     <StyledImg fluid={project.titleImage.fluid} />
                   </ImageLink>
                 </StyledProjectsContentContainerEven>
               ) : (
                 <StyledProjectsContentContainerOdd order={project.order}>
-                  <ImageLink to={`/projects/${project.slug}`}>
+                  <ImageLink
+                    fade
+                    duration={0.5}
+                    to={`/projects/${project.slug}`}
+                  >
                     <StyledImg fluid={project.titleImage.fluid} />
                   </ImageLink>
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
-                        <StyledTitleLink to={`/projects/${project.slug}`}>
+                        <StyledTitleLink
+                          fade
+                          duration={0.5}
+                          to={`/projects/${project.slug}`}
+                        >
                           {project.title}
                         </StyledTitleLink>
                       </StyledProjectTitle>
@@ -302,7 +324,11 @@ const Projects = ({ data }) => {
                     <StyledDescription>
                       {project.shortDescription}
                     </StyledDescription>
-                    <StyledLink to={`/projects/${project.slug}`}>
+                    <StyledLink
+                      fade
+                      duration={0.5}
+                      to={`/projects/${project.slug}`}
+                    >
                       View Project
                       <StyledFAArrowRight icon={faChevronRight} />
                     </StyledLink>

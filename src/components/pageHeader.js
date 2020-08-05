@@ -13,6 +13,7 @@ const EnterAnimation = keyframes`
 `
 
 const StyledH1 = styled.h1`
+  opacity: 0;
   color: #333;
   font-size: 50px;
   text-align: center;
@@ -20,6 +21,7 @@ const StyledH1 = styled.h1`
   animation: ${EnterAnimation};
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
+  animation-delay: 0.7s;
 
   @media screen and (min-width: 475px) {
     font-size: 60px;

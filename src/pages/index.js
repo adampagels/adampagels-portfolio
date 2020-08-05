@@ -38,12 +38,11 @@ const FadeInAnimation = keyframes`
 const StyledContainer = styled.div`
   position: absolute;
   left: 50%;
-  top: 47%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 1;
-  background-size: 200%;
   @media (min-width: 830px) {
     top: 50%;
   }
@@ -58,7 +57,7 @@ const StyledH1 = styled.h1`
   animation: ${EnterAnimationUp};
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.7s;
   color: #333;
   font-size: 15vw;
   margin: 0px;
@@ -75,7 +74,7 @@ const StyledH1 = styled.h1`
     animation: ${EnterAnimationDown};
     animation-duration: 1.2s;
     animation-fill-mode: forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.7s;
   }
 `
 
@@ -90,7 +89,7 @@ const StyledH2 = styled.h2`
   animation: ${FadeInAnimation};
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 1.9s;
+  animation-delay: 1.7s;
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
@@ -103,7 +102,7 @@ const StyledH2 = styled.h2`
     animation: ${FadeInAnimation};
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    animation-delay: 2.8s;
+    animation-delay: 2.4s;
   }
 `
 
