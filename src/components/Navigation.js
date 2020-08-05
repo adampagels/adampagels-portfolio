@@ -1,9 +1,9 @@
 import React, { useState } from "react"
+import Link from "gatsby-link"
 import styled, { keyframes, css } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { useLocation } from "@reach/router"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const StyledNav = styled.nav`
   display: flex;
@@ -14,7 +14,7 @@ const StyledNav = styled.nav`
   position: relative;
   justify-content: space-between;
   text-transform: lowercase;
-  margin: -4px auto 0px auto;
+  margin: -20px auto 0px auto;
   align-self: center;
   z-index: 6;
 
@@ -76,7 +76,7 @@ const StyledHover = styled.div`
   }
 `
 
-const StyledHeaderLink = styled(AniLink)`
+const StyledHeaderLink = styled(Link)`
   display: none;
 
   @media (max-width: 830px) {
@@ -174,7 +174,7 @@ const StyledInnerLi = styled.li`
   }
 `
 
-const StyledLink = styled(AniLink)`
+const StyledLink = styled(Link)`
   font-weight: 500;
   transition: 0.5s;
   padding-left: 0px;
@@ -311,48 +311,24 @@ const Navigation = () => {
     <>
       <StyledOuterUl>
         <StyledOuterLi>
-          <StyledLink
-            fade
-            duration={0.5}
-            location={location}
-            activeClassName="active"
-            to="/"
-          >
+          <StyledLink location={location} activeClassName="active" to="/">
             Adam Pagels
           </StyledLink>
         </StyledOuterLi>
       </StyledOuterUl>
       <StyledInnerUl>
         <StyledInnerLi location={location}>
-          <StyledLink
-            fade
-            duration={0.5}
-            location={location}
-            inner={true}
-            to="/projects"
-          >
+          <StyledLink location={location} inner={true} to="/projects">
             Projects
           </StyledLink>
         </StyledInnerLi>
         <StyledInnerLi location={location}>
-          <StyledLink
-            fade
-            duration={0.5}
-            location={location}
-            inner={true}
-            to="/about"
-          >
+          <StyledLink location={location} inner={true} to="/about">
             About
           </StyledLink>
         </StyledInnerLi>
         <StyledInnerLi location={location}>
-          <StyledLink
-            fade
-            duration={0.5}
-            location={location}
-            inner={true}
-            to="/blog"
-          >
+          <StyledLink location={location} inner={true} to="/blog">
             Blog
           </StyledLink>
         </StyledInnerLi>
@@ -361,8 +337,6 @@ const Navigation = () => {
       <StyledOuterUl>
         <StyledOuterLi>
           <StyledLink
-            fade
-            duration={0.5}
             location={location}
             partiallyActive={true}
             activeClassName="active"
@@ -378,9 +352,7 @@ const Navigation = () => {
   return (
     <StyledNav open={navbarOpen}>
       {navbarOpen ? <Navbox>{navbar}</Navbox> : <Navbox open>{navbar}</Navbox>}
-      <StyledHeaderLink fade duration={0.5} to="/">
-        Adam Pagels
-      </StyledHeaderLink>
+      <StyledHeaderLink to="/">Adam Pagels</StyledHeaderLink>
       <Toggle onClick={() => setNavbarOpen(!navbarOpen)}>
         {navbarOpen ? <Hamburger open={"open"} /> : <Hamburger />}
       </Toggle>

@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const EnterAnimation = keyframes`
   from {
@@ -67,7 +66,7 @@ const StyledProjectTitle = styled.h2`
   }
 `
 
-const StyledTitleLink = styled(AniLink)`
+const StyledTitleLink = styled(Link)`
   transition: all ease-in-out 300ms;
   text-decoration: none;
   color: #333;
@@ -87,7 +86,7 @@ const StyledTitleLink = styled(AniLink)`
   }
 `
 
-const ImageLink = styled(AniLink)`
+const ImageLink = styled(Link)`
   transition-duration: 0.3s;
   height: 100%;
   width: 100%;
@@ -141,7 +140,7 @@ const StyledProjects = styled.div`
   align-self: center;
 `
 
-const StyledLink = styled(AniLink)`
+const StyledLink = styled(Link)`
   font-size: 16px;
   color: #333;
   text-decoration: none;
