@@ -36,11 +36,9 @@ const Layout = ({ children }) => {
     <>
       <div
         style={{
-          margin: "auto",
+          margin: `auto`,
           maxWidth: "1200px",
-          paddingRight: "1.0875rem",
-          paddingLeft: "1.0875rem",
-          height: "100vh",
+          padding: `1rem 1.0875rem 1.45rem`,
         }}
       >
         <Navigation />
