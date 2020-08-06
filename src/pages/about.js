@@ -58,6 +58,7 @@ const StyledImageWrapper = styled.div`
   width: 320px;
   margin-top: 20px;
   margin-right: 16px;
+  margin-bottom: 30px;
   animation: ${EnterLeftAnimation};
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
@@ -75,6 +76,7 @@ const StyledImageWrapper = styled.div`
 
   @media screen and (min-width: 1024px) {
     margin-top: 0px;
+    margin-bottom: 0px;
   }
 `
 
