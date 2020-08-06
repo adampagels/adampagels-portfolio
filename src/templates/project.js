@@ -28,7 +28,7 @@ const StyledH2 = styled.h2`
 const StyledMarkdownDiv = styled.div`
   font-size: 18px;
   line-height: 150%;
-  max-width: 600px;
+  max-width: 800px;
 
   a {
     font-size: 16px;
@@ -71,6 +71,28 @@ const StyledTechStack = styled.div`
     width: 45%;
     margin-left: 70px;
     margin-top: 0px;
+  }
+`
+
+const StyledTechListContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const StyledTechList = styled.p`
+  font-size: 20px;
+  margin-right: 5px;
+  border-right: 2px solid #444;
+  padding: 0 10px;
+  margin-right: 0px;
+  color: #6c675d;
+
+  &:first-child {
+    padding-left: 0px;
+  }
+
+  &:last-child {
+    border-right: none;
   }
 `
 
@@ -149,6 +171,7 @@ const Project = ({ data }) => {
     stackDescription,
     lessonsLearned,
     theProblem,
+    technology,
   } = data.contentfulProjects
 
   let projectMedia = []
@@ -162,8 +185,13 @@ const Project = ({ data }) => {
     <Layout>
       <SEO title={title} />
       <div>
-        <div style={{ maxWidth: "700px" }}>
+        <div>
           <StyledH1>{title}</StyledH1>
+          <StyledTechListContainer>
+            {technology.map(tech => (
+              <StyledTechList>{tech}</StyledTechList>
+            ))}
+          </StyledTechListContainer>
           <StyledMarkdownDiv
             dangerouslySetInnerHTML={{
               __html:
@@ -222,6 +250,7 @@ export const pageQuery = graphql`
           url
         }
       }
+      technology
       bodyImages {
         fluid(maxWidth: 1000, quality: 100) {
           ...GatsbyContentfulFluid
