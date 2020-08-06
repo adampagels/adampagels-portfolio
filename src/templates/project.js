@@ -193,7 +193,6 @@ const Project = ({ data }) => {
           <StyledH2>Lessons Learned</StyledH2>
           <StyledP>{lessonsLearned.lessonsLearned}</StyledP>
         </StyledLessonsLearnedContainer>
-        <Link to="/projects">View more projects</Link>
       </div>
     </Layout>
   )
