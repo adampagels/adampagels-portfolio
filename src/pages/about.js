@@ -113,14 +113,12 @@ const About = () => (
           I'm a front-end developer based in Toronto, Canada.
         </StyledIntroP>
         <StyledDescriptionP>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-          nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-          venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          Integer tincidunt. Cras
+          I am passionate about turning complex problems into beautiful
+          solutions with clean code. I am constantly bettering myself as a
+          developer and I am always either refining my current set of skills or
+          looking to add new technologies to my arsenal. When I'm not coding,
+          you can find me learning something crazy such as how to juggle, how to
+          quickly solve a Rubik's Cube or even how to speak different languages.
         </StyledDescriptionP>
       </StyledPContainer>
     </StyledContentContainer>
