@@ -23,12 +23,15 @@ const StyledImage1 = styled(Img)`
 const StyledH2 = styled.h2`
   font-size: 28px;
   margin-top: 0px;
+  color: #333;
+  font-weight: 500;
 `
 
 const StyledMarkdownDiv = styled.div`
   font-size: 18px;
   line-height: 150%;
   max-width: 700px;
+  color: #222;
 
   a {
     font-size: 16px;
@@ -44,6 +47,7 @@ const StyledP = styled.p`
   font-size: 18px;
   line-height: 150%;
   margin-bottom: 0px;
+  color: #222;
 `
 
 const StyledProblemContainer = styled.div`
