@@ -2,9 +2,28 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
+
+const EnterAnimation = keyframes`
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`
+
+const StyledContainer = styled.div`
+  opacity: 0;
+  animation: ${EnterAnimation};
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 1.3s;
+`
 
 const StyledImage1 = styled(Img)`
   width: 100%;
@@ -69,6 +88,11 @@ const StyledTechListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 32px;
+  opacity: 0;
+  animation: ${EnterAnimation};
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s;
 `
 
 const StyledTechList = styled.p`
@@ -172,14 +196,14 @@ const Project = ({ data }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <div>
-        <div>
-          <PageHeader projectTemplate={true} heading={title} />
-          <StyledTechListContainer>
-            {technology.map(tech => (
-              <StyledTechList>{tech}</StyledTechList>
-            ))}
-          </StyledTechListContainer>
+      <>
+        <PageHeader projectTemplate={true} heading={title} />
+        <StyledTechListContainer>
+          {technology.map(tech => (
+            <StyledTechList>{tech}</StyledTechList>
+          ))}
+        </StyledTechListContainer>
+        <StyledContainer>
           <StyledMarkdownDiv
             dangerouslySetInnerHTML={{
               __html:
@@ -187,29 +211,29 @@ const Project = ({ data }) => {
                   .html,
             }}
           />
-        </div>
-        <StyledImage1 fluid={projectMedia[0].fluid} />
-        <StyledProblemContainer>
-          <StyledH2>The Problem</StyledH2>
-          <StyledP>{theProblem.theProblem}</StyledP>
-        </StyledProblemContainer>
-        <StyledTechStackRowContainer>
-          <StyledImage2 fluid={projectMedia[4].fluid} />
-          <StyledTechStack>
-            <StyledH2>Tech Stack Explanation</StyledH2>
-            <StyledP>{stackDescription.stackDescription}</StyledP>
-          </StyledTechStack>
-        </StyledTechStackRowContainer>
-        <StyledImage5 fluid={projectMedia[1].fluid} />
-        <ImageRow>
-          <StyledImage3 fluid={projectMedia[3].fluid} />
-          <StyledImage4 fluid={projectMedia[2].fluid} />
-        </ImageRow>
-        <StyledLessonsLearnedContainer>
-          <StyledH2>Lessons Learned</StyledH2>
-          <StyledP>{lessonsLearned.lessonsLearned}</StyledP>
-        </StyledLessonsLearnedContainer>
-      </div>
+          <StyledImage1 fluid={projectMedia[0].fluid} />
+          <StyledProblemContainer>
+            <StyledH2>The Problem</StyledH2>
+            <StyledP>{theProblem.theProblem}</StyledP>
+          </StyledProblemContainer>
+          <StyledTechStackRowContainer>
+            <StyledImage2 fluid={projectMedia[4].fluid} />
+            <StyledTechStack>
+              <StyledH2>Tech Stack Explanation</StyledH2>
+              <StyledP>{stackDescription.stackDescription}</StyledP>
+            </StyledTechStack>
+          </StyledTechStackRowContainer>
+          <StyledImage5 fluid={projectMedia[1].fluid} />
+          <ImageRow>
+            <StyledImage3 fluid={projectMedia[3].fluid} />
+            <StyledImage4 fluid={projectMedia[2].fluid} />
+          </ImageRow>
+          <StyledLessonsLearnedContainer>
+            <StyledH2>Lessons Learned</StyledH2>
+            <StyledP>{lessonsLearned.lessonsLearned}</StyledP>
+          </StyledLessonsLearnedContainer>
+        </StyledContainer>
+      </>
     </Layout>
   )
 }
