@@ -15,8 +15,8 @@ const EnterAnimation = keyframes`
 const StyledH1 = styled.h1`
   opacity: 0;
   color: #333;
-  font-size: 50px;
-  text-align: center;
+  font-size: ${props => (props.projectTemplate ? "60px" : "50px")};
+  text-align: ${props => (props.projectTemplate ? "left" : "center")};
   margin-top: 70px;
   animation: ${EnterAnimation};
   animation-duration: 0.8s;
@@ -32,6 +32,8 @@ const StyledH1 = styled.h1`
   }
 `
 
-const pageHeader = props => <StyledH1>{props.heading}</StyledH1>
+const pageHeader = props => (
+  <StyledH1 projectTemplate={props.projectTemplate}>{props.heading}</StyledH1>
+)
 
 export default pageHeader

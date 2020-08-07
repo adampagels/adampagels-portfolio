@@ -1,14 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
-
-const StyledH1 = styled.h1`
-  font-size: 60px;
-  font-family: "Roboto", sans-serif;
-`
+import PageHeader from "../components/pageHeader"
 
 const StyledImage1 = styled(Img)`
   width: 100%;
@@ -178,7 +174,7 @@ const Project = ({ data }) => {
       <SEO title={title} />
       <div>
         <div>
-          <StyledH1>{title}</StyledH1>
+          <PageHeader projectTemplate={true} heading={title} />
           <StyledTechListContainer>
             {technology.map(tech => (
               <StyledTechList>{tech}</StyledTechList>
