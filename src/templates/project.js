@@ -32,15 +32,6 @@ const StyledMarkdownDiv = styled.div`
   line-height: 150%;
   max-width: 700px;
   color: #222;
-
-  a {
-    font-size: 16px;
-    font-weight: 900;
-    color: #7158d1;
-    text-decoration: none;
-    border-bottom: 2px solid #fa9670;
-    cursor: pointer;
-  }
 `
 
 const StyledP = styled.p`
