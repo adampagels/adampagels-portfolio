@@ -28,7 +28,7 @@ const StyledH2 = styled.h2`
 const StyledMarkdownDiv = styled.div`
   font-size: 18px;
   line-height: 150%;
-  max-width: 800px;
+  max-width: 700px;
 
   a {
     font-size: 16px;
@@ -48,7 +48,7 @@ const StyledP = styled.p`
 
 const StyledProblemContainer = styled.div`
   margin: 120px auto;
-  max-width: 600px;
+  max-width: 700px;
 `
 
 const StyledTechStackRowContainer = styled.div`
@@ -77,6 +77,7 @@ const StyledTechStack = styled.div`
 const StyledTechListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 32px;
 `
 
 const StyledTechList = styled.p`
@@ -86,10 +87,6 @@ const StyledTechList = styled.p`
   padding: 0 10px;
   margin-right: 0px;
   color: #6c675d;
-
-  &:first-child {
-    padding-left: 0px;
-  }
 
   &:last-child {
     border-right: none;
@@ -161,7 +158,7 @@ const StyledImage5 = styled(Img)`
 `
 
 const StyledLessonsLearnedContainer = styled.div`
-  max-width: 600px;
+  max-width: 700px;
   margin: 70px 0px;
 `
 
