@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled, { keyframes } from "styled-components"
@@ -30,12 +29,12 @@ const FadeInAnimation = keyframes`
   }
 `
 
-const StyledDiv = styled.div`
+const StyledContainer = styled.div`
   opacity: 0;
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 33.5px;
   border: 1px #f45e67;
   border-radius: 15px;
   justify-content: center;
@@ -47,11 +46,11 @@ const StyledDiv = styled.div`
   animation-fill-mode: forwards;
   animation-delay: 0.7s;
 
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 555px) {
     width: 70%;
   }
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     flex-direction: row-reverse;
     justify-content: flex-start;
   }
@@ -61,7 +60,7 @@ const StyledForm = styled.form`
   margin: 30px 30px;
   align-self: center;
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     align-self: auto;
     margin: 60px 30px;
   }
@@ -101,7 +100,7 @@ const StyledContactInfo = styled.div`
     padding: 40px 45px;
   }
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     position: absolute;
     left: -95px;
     top: -36px;
@@ -134,11 +133,11 @@ const StyledInput = styled.input`
     opacity: 1;
   }
 
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 555px) {
     width: 50vw;
   }
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     width: 25vw;
   }
 
@@ -169,11 +168,11 @@ const StyledTextArea = styled.textarea`
     color: #fdfdfd;
   }
 
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 555px) {
     width: 50vw;
   }
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     width: 25vw;
   }
 
@@ -195,17 +194,17 @@ const StyledFAMarkerIcon = styled(FontAwesomeIcon)`
   color: #fdfdfd;
   opacity: 0.8;
 
-  @media screen and (min-width: 346px) {
+  @media screen and (min-width: 445px) {
     margin-right: 48px;
   }
 `
 
 const StyledFAEnvelopeIcon = styled(FontAwesomeIcon)`
-  margin-right: 18px;
+  margin-right: 21px;
   color: #fdfdfd;
   opacity: 0.8;
 
-  @media screen and (min-width: 346px) {
+  @media screen and (min-width: 445px) {
     margin-right: 44px;
   }
 `
@@ -223,12 +222,12 @@ const StyledFAErrorIcon = styled(FontAwesomeIcon)`
 `
 
 const StyledFAFileIcon = styled(FontAwesomeIcon)`
-  margin-right: 21px;
+  margin-right: 25px;
   margin-left: 4px;
   color: #fdfdfd;
   opacity: 0.8;
 
-  @media screen and (min-width: 346px) {
+  @media screen and (min-width: 445px) {
     margin-right: 48px;
   }
 `
@@ -303,14 +302,14 @@ const StyledButton = styled.button`
     background-color: ${props => props.formStatus !== "success" && "#dadada"};
   }
 
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 555px) {
     padding: ${props =>
       props.formStatus === "success" || props.formStatus === "error"
         ? "10px 15vw"
         : "10px 4vw"};
   }
 
-  @media screen and (min-width: 930px) {
+  @media screen and (min-width: 1020px) {
     padding: ${props =>
       props.formStatus === "success" || props.formStatus === "error"
         ? "10px 7vw"
@@ -487,7 +486,7 @@ const Contact = () => {
     <Layout>
       <PageHeader heading={"let's talk code"} />
       <SEO title="Contact" />
-      <StyledDiv>
+      <StyledContainer>
         <StyledForm
           name="contact"
           method="post"
@@ -601,7 +600,7 @@ const Contact = () => {
           </StyledIconContainer>
           <StyledBottomLine />
         </StyledContactInfo>
-      </StyledDiv>
+      </StyledContainer>
     </Layout>
   )
 }
