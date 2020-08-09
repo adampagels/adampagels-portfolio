@@ -129,7 +129,6 @@ const StyledInnerUl = styled.ul`
 const StyledInnerLi = styled.li`
   display: flex;
   text-decoration: none;
-  padding: 10px;
   margin-right: 20px;
 
   &:nth-child(1) {
@@ -175,13 +174,15 @@ const StyledInnerLi = styled.li`
 `
 
 const StyledLink = styled(Link)`
+  width: 100%;
+  text-align: center;
   font-weight: 500;
   transition: 0.5s;
   padding-left: 0px;
   font-size: 20px;
   display: block;
   text-decoration: none;
-  padding: 10px;
+  padding: 20px;
   color: #333;
 
   @media (min-width: 830px) {
@@ -230,6 +231,7 @@ const StyledOuterLi = styled.li`
     width: 100%;
     justify-content: center;
     background-color: #333;
+    padding: 0px;
   }
 `
 
