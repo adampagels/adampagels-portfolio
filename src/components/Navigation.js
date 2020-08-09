@@ -294,7 +294,7 @@ const Toggle = styled.div`
   right: 7px;
   border-radius: 39px;
   padding: 25px;
-  top: 6px;
+  top: 26px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   @media (max-width: 830px) {
