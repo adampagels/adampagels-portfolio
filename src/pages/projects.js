@@ -128,16 +128,20 @@ const StyledImg = styled(Img)`
 
 const StyledContainer = styled.div`
   margin-top: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
+
+  @media screen and (min-width: 830px) {
+    margin-bottom: 25px;
+  }
 `
 
 const StyledProjects = styled.div`
+  align-self: center;
+  display: flex;
+
   &:nth-child(even) {
-    display: flex;
     justify-content: flex-end;
   }
-
-  align-self: center;
 `
 
 const StyledLink = styled(Link)`
