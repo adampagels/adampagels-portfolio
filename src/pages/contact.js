@@ -247,7 +247,7 @@ const StyledTextA = styled.a`
   }
 
   :active {
-    font-size: 20px;
+    opacity: 1;
   }
 `
 

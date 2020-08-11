@@ -78,7 +78,7 @@ const StyledTitleLink = styled(Link)`
 }
 
 :active {
-  font-size: 80px;
+  opacity: 1;
 }
 
   &:visited {
@@ -158,7 +158,7 @@ const StyledLink = styled(Link)`
   }
 
   :active {
-    font-size: 20px;
+    opacity: 1;
   }
 
   &:visited {
