@@ -31,6 +31,7 @@ const StyledContentContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  overflow: hidden;
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
