@@ -59,9 +59,9 @@ const StyledHover = styled.div`
   position: absolute;
   background-color: #9e1e1e;
   transform: ${props =>
-    props.location.pathname.includes("projects") && "translateX(10px)"};
+    props.location.pathname.includes("projects") && "translateX(11px)"};
   transform: ${props =>
-    props.location.pathname.includes("about") && "translateX(142px)"};
+    props.location.pathname.includes("about") && "translateX(144px)"};
   transform: ${props =>
     props.location.pathname.includes("blog") && "translateX(255px)"};
   top: 50px;
@@ -134,7 +134,7 @@ const StyledInnerLi = styled.li`
   &:nth-child(1) {
     :hover {
       ~ ${StyledHover} {
-        transform: translateX(10px);
+        transform: translateX(11px);
         width: 93px;
         opacity: 1;
       }
@@ -144,7 +144,7 @@ const StyledInnerLi = styled.li`
   &:nth-child(2) {
     :hover {
       ~ ${StyledHover} {
-        transform: translateX(142px);
+        transform: translateX(144px);
         width: 75px;
         opacity: 1;
       }
