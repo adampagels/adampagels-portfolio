@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
+import AButton from "../components/aButton"
 
 const EnterAnimation = keyframes`
   from {
@@ -176,41 +177,6 @@ const StyledAContainer = styled.div`
   }
 `
 
-const StyledA = styled.a`
-  color: #fdfdfd;
-  background-color: #9e1e1e;
-  padding: 4px;
-  border-radius: 5px;
-  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 10px 0px 10px 10px;
-  border-radius: 50%;
-  border: 2px solid #9e1e1e;
-
-  &:hover {
-    box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
-    transform: translate(0px, -10px);
-  }
-
-  @media screen and (min-width: 475px) {
-    padding: 10px;
-  }
-`
-
-const StyledFADemoIcon = styled(FontAwesomeIcon)`
-  font-size: 22px;
-  padding: 5px;
-`
-
-const StyledFACodeIcon = styled(FontAwesomeIcon)`
-  font-size: 22px;
-  padding: 5px;
-`
-
 const StyledFAArrowRight = styled(FontAwesomeIcon)`
   font-size: 13px;
   margin: 0px 0px 1px 5px;
@@ -251,20 +217,16 @@ const Projects = ({ data }) => {
                         </StyledTitleLink>
                       </StyledProjectTitle>
                       <StyledAContainer>
-                        <StyledA
-                          href={project.demoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <StyledFADemoIcon icon={faGamepad} />
-                        </StyledA>
-                        <StyledA
-                          href={project.codeLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <StyledFACodeIcon icon={faCode} />
-                        </StyledA>
+                        <AButton
+                          projectList={true}
+                          href={projects.demoLink}
+                          icon={faGamepad}
+                        ></AButton>
+                        <AButton
+                          projectList={true}
+                          href={projects.codeLink}
+                          icon={faCode}
+                        ></AButton>
                       </StyledAContainer>
                     </StyledTopLine>
                     <StyledDescription>
@@ -308,20 +270,16 @@ const Projects = ({ data }) => {
                         </StyledTitleLink>
                       </StyledProjectTitle>
                       <StyledAContainer>
-                        <StyledA
-                          href={project.demoLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <StyledFADemoIcon icon={faGamepad} />
-                        </StyledA>
-                        <StyledA
-                          href={project.codeLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <StyledFACodeIcon icon={faCode} />
-                        </StyledA>
+                        <AButton
+                          projectList={true}
+                          href={projects.demoLink}
+                          icon={faGamepad}
+                        ></AButton>
+                        <AButton
+                          projectList={true}
+                          href={projects.codeLink}
+                          icon={faCode}
+                        ></AButton>
                       </StyledAContainer>
                     </StyledTopLine>
                     <StyledDescription>
