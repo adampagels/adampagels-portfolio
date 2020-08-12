@@ -31,7 +31,7 @@ const StyledA = styled.a`
 `
 
 const StyledFAIcon = styled(FontAwesomeIcon)`
-  font-size: 22px;
+  font-size: ${props => (props.contactPage ? "30px" : "22px")};
   padding: 5px;
 `
 
@@ -45,7 +45,7 @@ const AButton = props => (
       target="_blank"
       rel="noopener noreferrer"
     >
-      <StyledFAIcon icon={props.icon} />
+      <StyledFAIcon contactPage={props.contactPage} icon={props.icon} />
     </StyledA>
   </>
 )
