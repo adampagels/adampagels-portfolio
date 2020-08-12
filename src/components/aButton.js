@@ -38,6 +38,7 @@ const StyledFAIcon = styled(FontAwesomeIcon)`
 const AButton = props => (
   <>
     <StyledA
+      projectList={props.projectList}
       template={props.template}
       href={props.href}
       target="_blank"
