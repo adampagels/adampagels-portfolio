@@ -17,6 +17,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons"
 import PageHeader from "../components/pageHeader"
+import AButton from "../components/aButton"
 
 const FadeInAnimation = keyframes`
   from {
@@ -324,26 +325,6 @@ const StyledButton = styled.button`
   }
 `
 
-const StyledA = styled.a`
-  background-color: #fdfdfd;
-  color: #333;
-  padding: 20px;
-  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 10px 10px;
-  border-radius: 50px;
-  border: 2px solid #fdfdfd;
-
-  &:hover {
-    box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
-    transform: translate(0px, -10px);
-  }
-`
-
 const FadeIn = keyframes`
   0% {
     opacity: 0;
@@ -576,27 +557,21 @@ const Contact = () => {
           </StyledUl>
           <StyledTopLine />
           <StyledIconContainer>
-            <StyledA
+            <AButton
+              contactPage={true}
               href={"https://github.com/adampagels"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon size="2x" icon={faGithubAlt} />
-            </StyledA>
-            <StyledA
+              icon={faGithubAlt}
+            ></AButton>
+            <AButton
+              contactPage={true}
               href={"https://www.linkedin.com/in/adampagels/"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon size="2x" icon={faLinkedinIn} />
-            </StyledA>
-            <StyledA
+              icon={faLinkedinIn}
+            ></AButton>
+            <AButton
+              contactPage={true}
               href={"https://angel.co/u/adampagels"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon size="2x" icon={faAngellist} />
-            </StyledA>
+              icon={faAngellist}
+            ></AButton>
           </StyledIconContainer>
           <StyledBottomLine />
         </StyledContactInfo>
