@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import styled, { keyframes } from "styled-components"
 import Img from "gatsby-image"
 import PageHeader from "../components/pageHeader"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import AButton from "../components/aButton"
 import { faCode, faGamepad } from "@fortawesome/free-solid-svg-icons"
 
 const EnterAnimation = keyframes`
@@ -179,31 +179,6 @@ const StyledLessonsLearnedContainer = styled.div`
   margin: 70px 0px;
 `
 
-const StyledA = styled.a`
-  color: #fdfdfd;
-  background-color: #9e1e1e;
-  padding: 4px;
-  border-radius: 5px;
-  box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 10px 0px 10px 10px;
-  border-radius: 50%;
-  border: 2px solid #9e1e1e;
-
-  &:hover {
-    box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
-    transform: translate(0px, -10px);
-  }
-
-  @media screen and (min-width: 355px) {
-    padding: 10px;
-  }
-`
-
 const StyledAContainer = styled.div`
   margin: 30px auto 0px 25px;
   align-self: center;
@@ -212,16 +187,6 @@ const StyledAContainer = styled.div`
   @media screen and (min-width: 830px) {
     margin-top: 0px;
   }
-`
-
-const StyledFADemoIcon = styled(FontAwesomeIcon)`
-  font-size: 22px;
-  padding: 5px;
-`
-
-const StyledFACodeIcon = styled(FontAwesomeIcon)`
-  font-size: 22px;
-  padding: 5px;
 `
 
 const StyledTopLine = styled.div`
@@ -253,12 +218,16 @@ const Project = ({ data }) => {
         <StyledTopLine>
           <PageHeader projectTemplate={true} heading={title} />
           <StyledAContainer>
-            <StyledA href={demoLink} target="_blank" rel="noopener noreferrer">
-              <StyledFADemoIcon icon={faGamepad} />
-            </StyledA>
-            <StyledA href={codeLink} target="_blank" rel="noopener noreferrer">
-              <StyledFACodeIcon icon={faCode} />
-            </StyledA>
+            <AButton
+              template={"template"}
+              href={demoLink}
+              icon={faGamepad}
+            ></AButton>
+            <AButton
+              template={"template"}
+              href={codeLink}
+              icon={faCode}
+            ></AButton>
           </StyledAContainer>
         </StyledTopLine>
         <StyledTechListContainer>
