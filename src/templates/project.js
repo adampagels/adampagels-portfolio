@@ -180,9 +180,14 @@ const StyledLessonsLearnedContainer = styled.div`
 `
 
 const StyledAContainer = styled.div`
+  opacity: 0;
   margin: 30px auto 0px 25px;
   align-self: center;
   display: flex;
+  animation: ${EnterAnimation};
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 
   @media screen and (min-width: 830px) {
     margin-top: 0px;
