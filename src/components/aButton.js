@@ -3,19 +3,19 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const StyledA = styled.a`
-  color: #fdfdfd;
-  background-color: #9e1e1e;
-  padding: 4px;
-  border-radius: 5px;
+  color: ${props => (props.contactPage ? "#333" : "#fdfdfd")};
+  background-color: ${props => (props.contactPage ? "#fdfdfd" : "#9e1e1e")};
+  padding: ${props => (props.contactPage ? "20px" : "4px")};
   box-shadow: 0px 12px 11px -10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
   -webkit-text-decoration: none;
   text-decoration: none;
-  margin: 10px 0px 10px 10px;
+  margin: ${props => (props.contactPage ? "10px 10px" : "10px 0px 10px 10px")};
   border-radius: 50%;
-  border: 2px solid #9e1e1e;
+  border: ${props =>
+    props.contactPage ? "2px solid #fdfdfd" : "2px solid #9e1e1e"};
   &:hover {
     box-shadow: 0px 37px 20px -15px rgba(0, 0, 0, 0.2);
     transform: translate(0px, -10px);
@@ -38,6 +38,7 @@ const StyledFAIcon = styled(FontAwesomeIcon)`
 const AButton = props => (
   <>
     <StyledA
+      contactPage={props.contactPage}
       projectList={props.projectList}
       template={props.template}
       href={props.href}
