@@ -65,8 +65,8 @@ const StyledH1 = styled.h1`
   @media (min-width: 500px) {
     font-size: 13vw;
   }
-  @media (min-width: 1950px) {
-    font-size: 195px;
+  @media (min-width: 1550px) {
+    font-size: 201px;
   }
 
   &:nth-child(2) {
@@ -93,8 +93,8 @@ const StyledH2 = styled.h2`
   @media (min-width: 500px) {
     font-size: 2.6vw;
   }
-  @media (min-width: 1950px) {
-    font-size: 47px;
+  @media (min-width: 1550px) {
+    font-size: 40px;
   }
 
   &:nth-child(2) {
