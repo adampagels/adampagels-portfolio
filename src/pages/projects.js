@@ -204,7 +204,6 @@ const Projects = ({ data }) => {
             <>
               {project && project.title === projects[1].node.title ? (
                 <StyledProjectsContentContainerEven order={project.order}>
-                  {console.log(project.order * 1)}
                   <StyledProjectsContent>
                     <StyledTopLine>
                       <StyledProjectTitle>
@@ -219,12 +218,12 @@ const Projects = ({ data }) => {
                       <StyledAContainer>
                         <AButton
                           projectList={true}
-                          href={projects.demoLink}
+                          href={project.demoLink}
                           icon={faGamepad}
                         ></AButton>
                         <AButton
                           projectList={true}
-                          href={projects.codeLink}
+                          href={project.codeLink}
                           icon={faCode}
                         ></AButton>
                       </StyledAContainer>
@@ -272,12 +271,12 @@ const Projects = ({ data }) => {
                       <StyledAContainer>
                         <AButton
                           projectList={true}
-                          href={projects.demoLink}
+                          href={project.demoLink}
                           icon={faGamepad}
                         ></AButton>
                         <AButton
                           projectList={true}
-                          href={projects.codeLink}
+                          href={project.codeLink}
                           icon={faCode}
                         ></AButton>
                       </StyledAContainer>
