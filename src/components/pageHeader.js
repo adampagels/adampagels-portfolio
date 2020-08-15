@@ -28,7 +28,7 @@ const StyledH1 = styled.h1`
   }
 
   @media screen and (min-width: 830px) {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 `
 
