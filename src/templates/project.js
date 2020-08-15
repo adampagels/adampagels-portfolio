@@ -190,7 +190,7 @@ const StyledAContainer = styled.div`
   animation-delay: 0.3s;
 
   @media screen and (min-width: 830px) {
-    margin-top: 0px;
+    margin-top: -30px;
   }
 `
 
