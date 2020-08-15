@@ -50,7 +50,7 @@ const StyledPContainer = styled.div`
   animation-delay: 0.7s;
 
   @media screen and (min-width: 1024px) {
-    max-width: 400px;
+    max-width: 490px;
   }
 `
 
@@ -89,7 +89,7 @@ const StyledIntroP = styled.p`
 const StyledDescriptionP = styled.p`
   color: #333;
   line-height: 150%;
-  font-size: 18px;
+  font-size: 17px;
   width: 100%;
 `
 
@@ -114,12 +114,19 @@ const About = () => (
           I'm a front-end developer based in Toronto, Canada.
         </StyledIntroP>
         <StyledDescriptionP>
-          I am passionate about turning complex problems into beautiful
-          solutions with clean code. I am constantly bettering myself as a
-          developer and I am always either refining my current set of skills or
-          looking to add new technologies to my arsenal. When I'm not coding,
-          you can find me learning something crazy such as how to juggle, how to
-          quickly solve a Rubik's Cube or even how to speak different languages.
+          From a young age, I enjoyed patiently working with puzzles. When most
+          kids were at their breaking point, I found myself further interested
+          in completing the task, as I knew the final uncovering would be worth
+          the reward. As I continued developing my skills and gained a rapid
+          interest in coding, I paired it with my passion for turning complex
+          problems into beautiful solutions. Being a scholar at heart, I
+          continue to strive for improvement of myself as a developer, whether
+          it's refining my current set of skills or looking to add new
+          technologies to my arsenal to provide the highest quality in each
+          project I execute. Appreciating the finite value of time, when I'm not
+          coding, you can find me learning anything I can get my hands on - how
+          to juggle, how to quickly solve a Rubik's Cube or even how to speak
+          different languages.
         </StyledDescriptionP>
       </StyledPContainer>
     </StyledContentContainer>
