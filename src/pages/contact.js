@@ -552,7 +552,9 @@ const Contact = () => {
 
             <StyledLi>
               <StyledFAFileIcon size="2x" icon={faFile} />
-              <StyledTextA>Resume/CV</StyledTextA>
+              <StyledTextA href="/Adam-Pagels-Resume.pdf" target="_blank">
+                Resume/CV
+              </StyledTextA>
             </StyledLi>
           </StyledUl>
           <StyledTopLine />
