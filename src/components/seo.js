@@ -44,6 +44,10 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: `og:image`,
+          content: `https://adampagels.com/OG-Image.png`,
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
