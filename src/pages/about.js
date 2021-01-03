@@ -111,7 +111,7 @@ const About = () => (
       </StyledImageWrapper>
       <StyledPContainer>
         <StyledIntroP>
-          I'm a front-end developer based in Toronto, Canada.
+          I'm a frontend developer based in Toronto, Canada.
         </StyledIntroP>
         <StyledDescriptionP>
           From a young age, I enjoyed patiently working with puzzles. When most
