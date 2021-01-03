@@ -120,7 +120,7 @@ const Index = () => (
         <StyledH1>pagels</StyledH1>
       </StyledNameContainer>
       <StyledH2Div>
-        <StyledH2>Front-End Developer</StyledH2>
+        <StyledH2>Frontend Developer</StyledH2>
         <StyledH2>Based in Toronto</StyledH2>
       </StyledH2Div>
     </StyledContainer>
