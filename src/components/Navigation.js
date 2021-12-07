@@ -59,11 +59,11 @@ const StyledHover = styled.div`
   position: absolute;
   background-color: #9e1e1e;
   transform: ${props =>
-    props.location.pathname.includes("projects") && "translateX(11px)"};
+    props.location.pathname.includes("projects") && "translateX(5px)"};
   transform: ${props =>
-    props.location.pathname.includes("about") && "translateX(144px)"};
+    props.location.pathname.includes("about") && "translateX(130px)"};
   transform: ${props =>
-    props.location.pathname.includes("blog") && "translateX(255px)"};
+    props.location.pathname.includes("blog") && "translateX(235px)"};
   top: 50px;
   width: ${props => props.location.pathname.includes("projects") && "93px"};
   width: ${props => props.location.pathname.includes("about") && "75px"};
