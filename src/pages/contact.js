@@ -540,7 +540,7 @@ const Contact = () => {
           <StyledUl>
             <StyledLi>
               <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
-              <StyledP>Toronto, ON | Canada</StyledP>
+              <StyledP>Rotterdam | Netherlands</StyledP>
             </StyledLi>
 
             <StyledLi>
