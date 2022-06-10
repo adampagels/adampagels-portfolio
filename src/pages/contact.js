@@ -552,7 +552,10 @@ const Contact = () => {
 
             <StyledLi>
               <StyledFAFileIcon size="2x" icon={faFile} />
-              <StyledTextA href="/Adam-Pagels-Resume.pdf" target="_blank">
+              <StyledTextA
+                href="/Adam-Pagels-Resume-Front-End-Developer.pdf"
+                target="_blank"
+              >
                 Resume/CV
               </StyledTextA>
             </StyledLi>
