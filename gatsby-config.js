@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Adam Pagels`,
-    description: `Front-End JavaScript Developer. Based in Toronto.`,
+    description: `Front-End JavaScript Developer. Based in Rotterdam.`,
     author: `Adam Pagels`,
     siteUrl: `https://www.adampagels.com`,
   },
@@ -56,8 +56,5 @@ module.exports = {
         icon: `src/images/adam-pagels-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
