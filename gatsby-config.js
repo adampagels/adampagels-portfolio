@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,5 +57,6 @@ module.exports = {
         icon: `src/images/adam-pagels-icon.png`,
       },
     },
+    `gatsby-plugin-netlify-cms`,
   ],
 }
