@@ -9,7 +9,7 @@ import {
   faGamepad,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PageHeader from "../components/pageHeader"
 import AButton from "../components/aButton"
 
@@ -118,7 +118,7 @@ const StyledProjectsContent = styled.div`
   align-self: center;
 `
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   height: 100%;
   width: 100%;
   border-radius: 10px;
@@ -245,7 +245,10 @@ const Projects = ({ data }) => {
                     duration={0.5}
                     to={`/projects/${project.slug}`}
                   >
-                    <StyledImg fluid={project.titleImage.fluid} />
+                    <StyledImg
+                      image={getImage(project.titleImage)}
+                      placeholder="blurred"
+                    />
                   </ImageLink>
                 </StyledProjectsContentContainerEven>
               ) : (
@@ -255,7 +258,10 @@ const Projects = ({ data }) => {
                     duration={0.5}
                     to={`/projects/${project.slug}`}
                   >
-                    <StyledImg fluid={project.titleImage.fluid} />
+                    <StyledImg
+                      image={getImage(project.titleImage)}
+                      placeholder="blurred"
+                    />
                   </ImageLink>
                   <StyledProjectsContent>
                     <StyledTopLine>
@@ -312,9 +318,7 @@ export const query = graphql`
           title
           slug
           titleImage {
-            fluid(maxWidth: 1000, quality: 100) {
-              ...GatsbyContentfulFluid
-            }
+            gatsbyImageData(placeholder: BLURRED)
           }
           order
           shortDescription

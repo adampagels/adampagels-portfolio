@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled, { keyframes } from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PageHeader from "../components/pageHeader"
 import AButton from "../components/aButton"
 import { faCode, faGamepad } from "@fortawesome/free-solid-svg-icons"
@@ -27,7 +27,7 @@ const StyledContainer = styled.div`
   animation-delay: 1.3s;
 `
 
-const StyledImage1 = styled(Img)`
+const StyledImage1 = styled(GatsbyImage)`
   width: 100%;
   height: 50%;
   margin: 120px auto 60px auto;
@@ -110,7 +110,7 @@ const StyledTechList = styled.p`
   }
 `
 
-const StyledImage2 = styled(Img)`
+const StyledImage2 = styled(GatsbyImage)`
   width: 100%;
   height: 50%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
@@ -136,7 +136,7 @@ const ImageRow = styled.div`
   }
 `
 
-const StyledImage3 = styled(Img)`
+const StyledImage3 = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px,
@@ -149,7 +149,7 @@ const StyledImage3 = styled(Img)`
   }
 `
 
-const StyledImage4 = styled(Img)`
+const StyledImage4 = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
   margin-top: 4%;
@@ -164,7 +164,7 @@ const StyledImage4 = styled(Img)`
   }
 `
 
-const StyledImage5 = styled(Img)`
+const StyledImage5 = styled(GatsbyImage)`
   width: 100%;
   height: 50%;
   margin: 120px auto auto auto;
@@ -209,12 +209,7 @@ const Project = ({ data }) => {
     demoLink,
   } = data.contentfulProjects
 
-  let projectMedia = []
-  {
-    data.contentfulProjects.bodyImages.map(project => {
-      return projectMedia.push(project)
-    })
-  }
+  const projectImages = data.contentfulProjects.bodyImages
 
   return (
     <Layout>
@@ -248,22 +243,34 @@ const Project = ({ data }) => {
                   .html,
             }}
           />
-          <StyledImage1 fluid={projectMedia[0].fluid} />
+          <StyledImage1
+            image={getImage(projectImages[0])}
+            placeholder="blurred"
+          />
           <StyledProblemContainer>
             <StyledH2>The Problem</StyledH2>
             <StyledP>{theProblem.theProblem}</StyledP>
           </StyledProblemContainer>
           <StyledTechStackRowContainer>
-            <StyledImage2 fluid={projectMedia[4].fluid} />
+            <StyledImage2
+              image={getImage(projectImages[4])}
+              placeholder="blurred"
+            />
             <StyledTechStack>
               <StyledH2>Tech Stack Explanation</StyledH2>
               <StyledP>{stackDescription.stackDescription}</StyledP>
             </StyledTechStack>
           </StyledTechStackRowContainer>
-          <StyledImage5 fluid={projectMedia[1].fluid} />
+          <StyledImage5 image={getImage(projectImages[1])} />
           <ImageRow>
-            <StyledImage3 fluid={projectMedia[3].fluid} />
-            <StyledImage4 fluid={projectMedia[2].fluid} />
+            <StyledImage3
+              image={getImage(projectImages[3])}
+              placeholder="blurred"
+            />
+            <StyledImage4
+              image={getImage(projectImages[2])}
+              placeholder="blurred"
+            />
           </ImageRow>
           <StyledLessonsLearnedContainer>
             <StyledH2>Lessons Learned</StyledH2>
@@ -295,17 +302,13 @@ export const pageQuery = graphql`
         theProblem
       }
       titleImage {
-        file {
-          url
-        }
+        gatsbyImageData
       }
       codeLink
       demoLink
       technology
       bodyImages {
-        fluid(maxWidth: 1000, quality: 100) {
-          ...GatsbyContentfulFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
   }
