@@ -5,7 +5,8 @@ const Image = () => {
   return (
     <StaticImage
       src="../images/adam-pagels-developer.png"
-      placeholder="blurred"
+      loading="lazy"
+      quality={100}
     />
   )
 }
