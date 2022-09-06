@@ -20,6 +20,11 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: "blog-posts",
+      },
     },
     {
       resolve: `gatsby-plugin-preload-fonts`,

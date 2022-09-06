@@ -8,16 +8,41 @@ public_folder: /images
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "src/blog"
     create: true
-    slug: "index"
+    slug: "{{slug}}"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}"
+    path: "{{slug}}"
     editor:
       preview: true
     fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
       - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Feature Image",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - {
+          label: "Body Images",
+          name: "body images",
+          widget: "list",
+          required: false,
+        }
       - { label: "Publish Date", name: "date", widget: "date" }
-      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: Author, name: author, widget: hidden, default: Adam Pagels }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
