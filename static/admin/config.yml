@@ -13,7 +13,7 @@ collections:
     slug: "{{slug}}"
     media_folder: ""
     public_folder: ""
-    path: "{{slug}}"
+    path: "{{slug}}/index"
     editor:
       preview: true
     fields:
@@ -28,12 +28,6 @@ collections:
           label: "Feature Image",
           name: "image",
           widget: "image",
-          required: false,
-        }
-      - {
-          label: "Body Images",
-          name: "body images",
-          widget: "list",
           required: false,
         }
       - { label: "Publish Date", name: "date", widget: "date" }
