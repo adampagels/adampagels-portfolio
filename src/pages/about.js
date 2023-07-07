@@ -110,9 +110,7 @@ const About = () => (
         <ImageBorder />
       </StyledImageWrapper>
       <StyledPContainer>
-        <StyledIntroP>
-          I'm a front-end developer based in Rotterdam, Netherlands.
-        </StyledIntroP>
+        <StyledIntroP>I'm a front-end developer based in Malta.</StyledIntroP>
         <StyledDescriptionP>
           From a young age, I enjoyed patiently working with puzzles. When most
           kids were at their breaking point, I found myself further interested
