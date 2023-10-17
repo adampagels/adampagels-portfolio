@@ -121,7 +121,7 @@ const Index = () => (
       </StyledNameContainer>
       <StyledH2Div>
         <StyledH2>Front-End Developer</StyledH2>
-        <StyledH2>Based in Malta</StyledH2>
+        <StyledH2>Based in Belfast, Nothern Ireland</StyledH2>
       </StyledH2Div>
     </StyledContainer>
   </Layout>

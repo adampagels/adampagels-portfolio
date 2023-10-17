@@ -540,7 +540,7 @@ const Contact = () => {
           <StyledUl>
             <StyledLi>
               <StyledFAMarkerIcon size="2x" icon={faMapMarkerAlt} />
-              <StyledP>St. Julian's | Malta</StyledP>
+              <StyledP>Belfast | Northern Ireland</StyledP>
             </StyledLi>
 
             <StyledLi>
