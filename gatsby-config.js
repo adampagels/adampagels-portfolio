@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Adam Pagels`,
-    description: `Front-End JavaScript Developer. Based in Belfast, Nothern Ireland.`,
+    description: `Front-End JavaScript Developer. Based in Belfast, Northern Ireland.`,
     author: `Adam Pagels`,
     siteUrl: `https://www.adampagels.com`,
   },

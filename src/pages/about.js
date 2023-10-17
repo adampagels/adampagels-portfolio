@@ -111,7 +111,7 @@ const About = () => (
       </StyledImageWrapper>
       <StyledPContainer>
         <StyledIntroP>
-          I'm a front-end developer based in Belfast, Nothern Ireland.
+          I'm a front-end developer based in Belfast, Northern Ireland.
         </StyledIntroP>
         <StyledDescriptionP>
           From a young age, I enjoyed patiently working with puzzles. When most
